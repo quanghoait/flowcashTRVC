@@ -16,5 +16,13 @@ namespace flowcashTRVC
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (txtUsername.Text == "")
+            {
+                MessageBox.Show("Enter Username !!", "Meera Academy");
+            }
+        }
     }
 }
