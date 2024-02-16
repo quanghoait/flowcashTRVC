@@ -1,6 +1,13 @@
 CREATE DATABASE ManagerFlowMonneyTrad;
 USE ManagerFlowMonneyTrad;
-CREATE TABLE  User( ID  INT(11) AUTO_INCREMENT, Username varchar (150) DEFAULT NULL, Password varchar(150) DEFAULT NULL, quyen INT (11) DEFAULT NULL, PRIMARY KEY (ID) ); 
-INSERT INTO User ( Username,Password,quyen) VALUES ("QuangCuong","cuong123",1);
-SELECT * FROM User; 
+CREATE TABLE  employee( ID  INT AUTO_INCREMENT, Username varchar (150) DEFAULT NULL, Password varchar(150) DEFAULT NULL, IDper INT DEFAULT NULL, PRIMARY KEY (ID) ); 
+INSERT INTO employee( Username,Password,IDper) VALUES ("QuangCuong","cuong123",1);
+INSERT INTO employee( Username,Password,IDper) VALUES ("PhuongLan","lan123",2);
+SELECT * FROM employee; 
+SELECT * FROM employee where Username ="PhuongLan" and Password ="lan123";
 DROP TABLE User;
+CREATE TABLE  CodeTable( ID  INT AUTO_INCREMENT, S_code varchar (150) DEFAULT NULL, F varchar(150) DEFAULT NULL, ItemName varchar(150) DEFAULT NULL,the_kind varchar(150) DEFAULT NULL,Account_No varchar(150) DEFAULT NULL,Bank varchar(150) DEFAULT NULL,Type varchar(150) DEFAULT NULL,  PRIMARY KEY (ID) ); 
+INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ("HC001","Ha Nam Customs Office","Import tax","Goverment office","","Ngan hang TMCP Ngoai Thuong Viet Nam, CN Ha Nam","Monthly");
+INSERT INTO employee( Username,Password,IDper) VALUES ("PhuongLan","lan123",2);
+SELECT * FROM CodeTable; 
+DROP TABLE CodeTable;

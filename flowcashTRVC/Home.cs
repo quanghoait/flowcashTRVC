@@ -16,5 +16,10 @@ namespace flowcashTRVC
         {
             InitializeComponent();
         }
+        private void btnCode_Click(object sender, EventArgs e)
+        {
+           Code code = new Code();
+           code.Show();
+         }
     }
 }
