@@ -16,7 +16,7 @@ namespace flowcashTRVC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Code());
+            Application.Run(new Cashbook());
         }
     }
 }

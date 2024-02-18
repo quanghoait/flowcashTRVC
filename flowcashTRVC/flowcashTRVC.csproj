@@ -86,6 +86,9 @@
     <EmbeddedResource Include="admin.resx">
       <DependentUpon>admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cashbook.resx">
+      <DependentUpon>Cashbook.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Code.resx">
       <DependentUpon>Code.cs</DependentUpon>
     </EmbeddedResource>
