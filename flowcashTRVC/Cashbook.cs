@@ -25,6 +25,10 @@ namespace flowcashTRVC
         public Cashbook()
         {
             InitializeComponent();
+
+           
+            DateTime dateTime = dateTimePickerCash.Value;
+            MessageBox.Show(""+dateTime.Year);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,10 +69,43 @@ namespace flowcashTRVC
         private void maCash_Click(object sender, EventArgs e)
         {
             
-            string kind_cash = "H15-795-011595";
+            //string kind_cash = "H15-795-011595";
+            //string connString = "Server=" + host + ";Database=" + database
+            // + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            //string request = "SELECT MaCash FROM MaCashTable where NameMa ='"+ kind_cash +"'";
+            //using (MySqlConnection connection = new MySqlConnection(connString))
+            //{
+            //    using (MySqlCommand cmd = new MySqlCommand(request, connection))
+            //    {
+            //        connection.Open();
+            //        MySqlDataReader reader = cmd.ExecuteReader();
+            //        while (reader.Read())
+            //        {
+            //            MessageBox.Show(reader["MaCash"].ToString());  
+            //        }
+            //    }
+            //}
+        }
+
+        private void comboKindcash_DropDown(object sender, EventArgs e)
+        {
+            cbbKindCach.Items.Clear();
+            cbbKindCach.Items.Add("Cash");
+            cbbKindCach.Items.Add("VND (VIETCOMBANK)");
+            cbbKindCach.Items.Add("H15-795-011595");
+            cbbKindCach.Items.Add("F15-795-011587");
+            cbbKindCach.Items.Add("F15-795-011919");
+        }
+
+        private void cbbKindCach_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+            //MessageBox.Show(""+cbbKindCach.SelectedItem.ToString());
+            string kind_cash = cbbKindCach.SelectedItem.ToString();
             string connString = "Server=" + host + ";Database=" + database
              + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            string request = "SELECT MaCash FROM MaCashTable where NameMa ='"+ kind_cash +"'";
+            string request = "SELECT MaCash FROM MaCashTable where NameMa ='" + kind_cash + "'";
+           
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(request, connection))
@@ -77,7 +114,36 @@ namespace flowcashTRVC
                     MySqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        MessageBox.Show(reader["MaCash"].ToString());  
+                        //MessageBox.Show(reader["MaCash"].ToString());
+                        displayKindCash.Text = reader["MaCash"].ToString();
+                        //DateTime dateTime = dateTimePickerCash.Value;
+                        //MessageBox.Show("" + dateTime.Year);
+
+                    }
+                }
+            }
+        }
+
+        private void insertCashBook_Click(object sender, EventArgs e)
+        {
+            //string kind_cash = cbbKindCach.SelectedItem.ToString();
+            string connString = "Server=" + host + ";Database=" + database
+             + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                {
+                    connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        
+                        displayBalance.Text = reader["Balance"].ToString();
+                        //DateTime dateTime = dateTimePickerCash.Value;
+                        //MessageBox.Show("" + dateTime.Year);
+
                     }
                 }
             }
