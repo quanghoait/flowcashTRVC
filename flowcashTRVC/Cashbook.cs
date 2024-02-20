@@ -1,4 +1,4 @@
-﻿using Microsoft.Office.Interop.Excel;
+﻿
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.IO;
+using Microsoft.Office.Interop.Excel;
 
 namespace flowcashTRVC
 {
@@ -25,10 +26,11 @@ namespace flowcashTRVC
         public Cashbook()
         {
             InitializeComponent();
+           // ExcelApp.Application excelApp = new ExcelApp.Application();
+           // ExcelApp.Workbook excelBook = excelApp.Workbooks.Open("D:\\hoa\\test_1.xlsx");
 
-           
-            DateTime dateTime = dateTimePickerCash.Value;
-            MessageBox.Show(""+dateTime.Year);
+            //DateTime dateTime = dateTimePickerCash.Value;
+            //MessageBox.Show(""+dateTime.Year);
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -147,6 +149,18 @@ namespace flowcashTRVC
                     }
                 }
             }
+        }
+
+        private void btnPrinter_Click(object sender, EventArgs e)
+        {
+
+            //MessageBox.Show("that is nice photo");
+            _Application excelApp = new Microsoft.Office.Interop.Excel.Application();
+            Workbook excelBook = excelApp.Workbooks.Open("D:\\hoa\\test_1.xlsx");
+            _Worksheet excelSheet = excelBook.Sheets[1];
+
+
+
         }
     }
 
