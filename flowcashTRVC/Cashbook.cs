@@ -10,6 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
+//using Word = Microsoft.Office.Interop.Word;
+//using Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices.ComTypes;
 using Microsoft.Office.Interop.Excel;
 
 namespace flowcashTRVC
@@ -154,17 +158,21 @@ namespace flowcashTRVC
         private void btnPrinter_Click(object sender, EventArgs e)
         {
 
-            //MessageBox.Show("that is nice photo");
-            _Application excelApp = new Microsoft.Office.Interop.Excel.Application();
-            Workbook excelBook = excelApp.Workbooks.Open("D:\\hoa\\test_1.xlsx");
-            _Worksheet excelSheet = excelBook.Sheets[1];
-
-
+            Excel.Application objXL = null;
+            Excel._Workbook objWB = null;
+            objXL = new Excel.Application();
+            objXL.Visible = true;
+            var newWB= objXL.Workbooks.Add();
+            
+            var newSheet = objXL.Worksheets.Add();
+            newSheet.Name = "myWorkSheet";
+            _Worksheet sheet = objWB.Worksheets["myWorkSheet"];
+            sheet.Activate();
 
         }
     }
+    }
 
-}
 
        
     
