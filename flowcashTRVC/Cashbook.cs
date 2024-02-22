@@ -162,12 +162,13 @@ namespace flowcashTRVC
             Excel._Workbook objWB = null;
             objXL = new Excel.Application();
             objXL.Visible = true;
-            var newWB= objXL.Workbooks.Add();
+            var newWB = objXL.Workbooks.Open("file:///D:\\hoa\\C#\\flowcashTRVC\\CashBook.xlsx");
+            //var newSheet = newWB.Worksheets.Add();
+            //newSheet.Name = "CashBook";
             
-            var newSheet = objXL.Worksheets.Add();
-            newSheet.Name = "myWorkSheet";
-            _Worksheet sheet = objWB.Worksheets["Sheet1"];
-            sheet.Activate();
+            
+
+           
 
         }
     }
