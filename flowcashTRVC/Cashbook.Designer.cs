@@ -205,13 +205,13 @@
             this.panel2.Controls.Add(this.insertCashBook);
             this.panel2.Location = new System.Drawing.Point(504, 21);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 161);
+            this.panel2.Size = new System.Drawing.Size(255, 161);
             this.panel2.TabIndex = 1;
             // 
             // btnPrinter
             // 
             this.btnPrinter.Location = new System.Drawing.Point(84, 8);
-            this.btnPrinter.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrinter.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrinter.Name = "btnPrinter";
             this.btnPrinter.Size = new System.Drawing.Size(56, 19);
             this.btnPrinter.TabIndex = 1;
