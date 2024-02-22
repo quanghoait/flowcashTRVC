@@ -166,7 +166,7 @@ namespace flowcashTRVC
             
             var newSheet = objXL.Worksheets.Add();
             newSheet.Name = "myWorkSheet";
-            _Worksheet sheet = objWB.Worksheets["myWorkSheet"];
+            _Worksheet sheet = objWB.Worksheets["Sheet1"];
             sheet.Activate();
 
         }
