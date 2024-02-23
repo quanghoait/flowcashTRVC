@@ -21,8 +21,6 @@ namespace flowcashTRVC
         string username = "root";
         string password = "Trad99999";
 
-        
-
         public Login()
         {
             InitializeComponent();
@@ -41,10 +39,22 @@ namespace flowcashTRVC
                 {
                     connection.Open();
                     MySqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                    
+                    //while (reader.Read())
+                    //{
+                    //    //MessageBox.Show(reader.GetString(0));
+                    //    MessageBox.Show("dang nhap thanh cong");
+                    //}
+                    if (reader.Read())
                     {
-                        //MessageBox.Show(reader.GetString(0));
                         MessageBox.Show("dang nhap thanh cong");
+                        Home fHome = new Home(); 
+                        fHome.ShowDialog();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("đăng nhập thất bại");
                     }
                 }
                 }

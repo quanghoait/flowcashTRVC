@@ -9,6 +9,8 @@ SELECT * FROM employee where Username ="PhuongLan" and Password ="lan123";
 DROP TABLE employee;
 CREATE TABLE  CodeTable( ID  INT AUTO_INCREMENT, S_code varchar (150) DEFAULT NULL, F varchar(150) DEFAULT NULL, ItemName varchar(150) DEFAULT NULL,the_kind varchar(150) DEFAULT NULL,Account_No varchar(150) DEFAULT NULL,Bank varchar(150) DEFAULT NULL,Type varchar(150) DEFAULT NULL,  PRIMARY KEY (ID) ); 
 INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ("HC001","Ha Nam Customs Office","Import tax","Goverment office","","Ngan hang TMCP Ngoai Thuong Viet Nam, CN Ha Nam","Monthly");
+INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ("HC002","Ha Nam Customs Office","Import tax","Goverment office","","Ngan hang TMCP Ngoai Thuong Viet Nam, CN Ha Nam","Monthly");
+
 INSERT INTO employee( Username,Password,IDper) VALUES ("PhuongLan","lan123",2);
 SELECT * FROM CodeTable; 
 DROP TABLE CodeTable;

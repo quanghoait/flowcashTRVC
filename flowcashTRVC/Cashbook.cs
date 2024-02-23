@@ -20,6 +20,7 @@ namespace flowcashTRVC
 {
     public partial class Cashbook : Form
     {
+        
 
         string host = "localhost";
         int port = 3306;
@@ -165,7 +166,7 @@ namespace flowcashTRVC
             var newWB = objXL.Workbooks.Open("file:///D:\\hoa\\C#\\flowcashTRVC\\CashBook.xlsx");
             var newSheet = newWB.Worksheets;
             //newSheet.Name = "CashBook";
-            newSheet.Cells.InsertRows(1, 2);
+            //newSheet.Cells.InsertRows(1, 2);
 
         }
     }

@@ -21,6 +21,7 @@ namespace flowcashTRVC
 
         private void Code_Load(object sender, EventArgs e)
         {
+
             string host = "localhost";
             int port = 3306;
             string database = "ManagerFlowMonneyTrad";
@@ -43,35 +44,60 @@ namespace flowcashTRVC
 
             }
 
-
-
-        }
-
+                    }
         private void btnInsertcode_Click(object sender, EventArgs e)
         {
-            //     string host = "localhost";
-            //     int port = 3306;
-            //     string database = "ManagerFlowMonneyTrad";
-            //     string username = "root";
-            //     string password = "Trad99999";
 
-            //     string connString = "Server=" + host + ";Database=" + database
-            //+ ";port=" + port + ";User Id=" + username + ";password=" + password;
-            //     string request = "SELECT * FROM CodeTable";
-            //     using (MySqlConnection connection = new MySqlConnection(connString))
-            //     {
-            //         using (MySqlCommand cmd = new MySqlCommand(request, connection))
-            //         {
-            //             connection.Open();
-            //             MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            //             DataTable dataTable = new DataTable();
-            //             adapter.Fill(dataTable);
-            //             dataGridViewCode.DataSource = dataTable;
-            //         }
+            string host = "localhost";
+            int port = 3306;
+            string database = "ManagerFlowMonneyTrad";
+            string username = "root";
+            string password = "Trad99999";
 
-            //     }
+            string connString = "Server=" + host + ";Database=" + database
+       + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            //string request = "INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ('"+txtS_code.Text+ "','"+txtAccount_No.Text+ "','"+txtItemName.Text+ "','"+txtKind.Text+ "','"+txtBank.Text+ "','"+txtType.Text + "')"; 
+            string request = "INSERT INTO CodeTable( S_code) VALUES ('"+txtS_code.Text+"')"; 
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                {
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    Read_Data();
+
+
+                }
+
+            }
         }
+        private void Read_Data()
+        {
+            string host = "localhost";
+            int port = 3306;
+            string database = "ManagerFlowMonneyTrad";
+            string username = "root";
+            string password = "Trad99999";
 
+            string connString = "Server=" + host + ";Database=" + database
+       + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string request = "SELECT * FROM CodeTable";
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                {
+                    connection.Open();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataTable dataTable = new DataTable();
+                    adapter.Fill(dataTable);
+                    dataGridViewCode.DataSource = dataTable;
+                    connection.Close();
+                }
+
+            }
+
+        }
         private void dataGridViewCode_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int i;

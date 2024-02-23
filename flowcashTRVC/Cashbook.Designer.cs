@@ -46,8 +46,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnPrinter = new System.Windows.Forms.Button();
             this.insertCashBook = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,35 +69,39 @@
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 21);
+            this.panel1.Location = new System.Drawing.Point(16, 26);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(486, 161);
+            this.panel1.Size = new System.Drawing.Size(648, 179);
             this.panel1.TabIndex = 0;
             // 
             // displayBalance
             // 
             this.displayBalance.AutoSize = true;
-            this.displayBalance.Location = new System.Drawing.Point(335, 101);
+            this.displayBalance.Location = new System.Drawing.Point(447, 124);
+            this.displayBalance.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.displayBalance.Name = "displayBalance";
-            this.displayBalance.Size = new System.Drawing.Size(39, 13);
+            this.displayBalance.Size = new System.Drawing.Size(46, 16);
             this.displayBalance.TabIndex = 18;
             this.displayBalance.Text = "Defaut";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(268, 100);
+            this.label2.Location = new System.Drawing.Point(357, 123);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 17;
             this.label2.Text = "Balance";
             // 
             // displayKindCash
             // 
             this.displayKindCash.AutoSize = true;
-            this.displayKindCash.Location = new System.Drawing.Point(67, 45);
+            this.displayKindCash.Location = new System.Drawing.Point(89, 55);
+            this.displayKindCash.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.displayKindCash.Name = "displayKindCash";
-            this.displayKindCash.Size = new System.Drawing.Size(39, 13);
+            this.displayKindCash.Size = new System.Drawing.Size(46, 16);
             this.displayKindCash.TabIndex = 15;
             this.displayKindCash.Text = "Defaut";
             this.displayKindCash.TextChanged += new System.EventHandler(this.label8_TextChanged);
@@ -106,9 +112,10 @@
             this.cbbKindCach.FormattingEnabled = true;
             this.cbbKindCach.Items.AddRange(new object[] {
             "H15-795-011595"});
-            this.cbbKindCach.Location = new System.Drawing.Point(70, 7);
+            this.cbbKindCach.Location = new System.Drawing.Point(93, 9);
+            this.cbbKindCach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbbKindCach.Name = "cbbKindCach";
-            this.cbbKindCach.Size = new System.Drawing.Size(121, 21);
+            this.cbbKindCach.Size = new System.Drawing.Size(160, 24);
             this.cbbKindCach.TabIndex = 1;
             this.cbbKindCach.Tag = "Cash";
             this.cbbKindCach.Text = "Cash";
@@ -119,82 +126,92 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 45);
+            this.label7.Location = new System.Drawing.Point(20, 55);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(22, 13);
+            this.label7.Size = new System.Drawing.Size(26, 16);
             this.label7.TabIndex = 14;
             this.label7.Text = "Ma";
             // 
             // dateTimePickerCash
             // 
-            this.dateTimePickerCash.Location = new System.Drawing.Point(70, 74);
+            this.dateTimePickerCash.Location = new System.Drawing.Point(93, 91);
+            this.dateTimePickerCash.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePickerCash.Name = "dateTimePickerCash";
-            this.dateTimePickerCash.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerCash.Size = new System.Drawing.Size(265, 22);
             this.dateTimePickerCash.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(266, 48);
+            this.label6.Location = new System.Drawing.Point(355, 59);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.Size = new System.Drawing.Size(60, 16);
             this.label6.TabIndex = 12;
             this.label6.Text = "Payment";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(338, 45);
+            this.textBox6.Location = new System.Drawing.Point(451, 55);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(111, 20);
+            this.textBox6.Size = new System.Drawing.Size(147, 22);
             this.textBox6.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(272, 13);
+            this.label5.Location = new System.Drawing.Point(363, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.Size = new System.Drawing.Size(51, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "Income";
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(338, 10);
+            this.textBox5.Location = new System.Drawing.Point(451, 12);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(111, 20);
+            this.textBox5.Size = new System.Drawing.Size(147, 22);
             this.textBox5.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(0, 117);
+            this.label4.Location = new System.Drawing.Point(0, 144);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(82, 16);
             this.label4.TabIndex = 8;
             this.label4.Text = "Decscription";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(70, 114);
+            this.textBox4.Location = new System.Drawing.Point(93, 140);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(132, 22);
             this.textBox4.TabIndex = 7;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 74);
+            this.label3.Location = new System.Drawing.Point(12, 91);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 13);
+            this.label3.Size = new System.Drawing.Size(34, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "date";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 10);
+            this.label1.Location = new System.Drawing.Point(20, 12);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 13);
+            this.label1.Size = new System.Drawing.Size(33, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "Kind";
             // 
@@ -203,17 +220,18 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.btnPrinter);
             this.panel2.Controls.Add(this.insertCashBook);
-            this.panel2.Location = new System.Drawing.Point(504, 21);
+            this.panel2.Location = new System.Drawing.Point(672, 26);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(255, 161);
+            this.panel2.Size = new System.Drawing.Size(340, 93);
             this.panel2.TabIndex = 1;
             // 
             // btnPrinter
             // 
-            this.btnPrinter.Location = new System.Drawing.Point(84, 8);
-            this.btnPrinter.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrinter.Location = new System.Drawing.Point(234, 9);
+            this.btnPrinter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrinter.Name = "btnPrinter";
-            this.btnPrinter.Size = new System.Drawing.Size(56, 19);
+            this.btnPrinter.Size = new System.Drawing.Size(75, 23);
             this.btnPrinter.TabIndex = 1;
             this.btnPrinter.Text = "printer";
             this.btnPrinter.UseVisualStyleBackColor = true;
@@ -222,26 +240,40 @@
             // insertCashBook
             // 
             this.insertCashBook.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.insertCashBook.Location = new System.Drawing.Point(3, 7);
+            this.insertCashBook.Location = new System.Drawing.Point(104, 9);
+            this.insertCashBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.insertCashBook.Name = "insertCashBook";
-            this.insertCashBook.Size = new System.Drawing.Size(75, 23);
+            this.insertCashBook.Size = new System.Drawing.Size(100, 28);
             this.insertCashBook.TabIndex = 0;
             this.insertCashBook.Text = "Insert";
             this.insertCashBook.UseVisualStyleBackColor = false;
             this.insertCashBook.Click += new System.EventHandler(this.insertCashBook_Click);
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 225);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1105, 258);
+            this.dataGridView1.TabIndex = 2;
+            // 
             // Cashbook
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 450);
+            this.ClientSize = new System.Drawing.Size(1136, 554);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Cashbook";
             this.Text = "Cashbook";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -266,5 +298,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button insertCashBook;
         private System.Windows.Forms.Button btnPrinter;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
