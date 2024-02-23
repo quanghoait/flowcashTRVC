@@ -57,7 +57,7 @@ namespace flowcashTRVC
             string connString = "Server=" + host + ";Database=" + database
        + ";port=" + port + ";User Id=" + username + ";password=" + password;
             //string request = "INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ('"+txtS_code.Text+ "','"+txtAccount_No.Text+ "','"+txtItemName.Text+ "','"+txtKind.Text+ "','"+txtBank.Text+ "','"+txtType.Text + "')"; 
-            string request = "INSERT INTO CodeTable( S_code) VALUES ('"+txtS_code.Text+"')"; 
+            string request = "INSERT INTO CodeTable( S_code,) VALUES ('"+txtS_code.Text+ "','\"+txtS_code.Text+\"','\"+txtS_code.Text+\"')"; 
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(request, connection))
