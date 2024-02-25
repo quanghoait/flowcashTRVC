@@ -38,10 +38,7 @@ namespace flowcashTRVC
             //MessageBox.Show(""+dateTime.Year);
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
    
 
@@ -167,6 +164,11 @@ namespace flowcashTRVC
             var newSheet = newWB.Worksheets;
             //newSheet.Name = "CashBook";
             //newSheet.Cells.InsertRows(1, 2);
+
+        }
+
+        private void cbbKindCach_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
