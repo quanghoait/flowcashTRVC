@@ -69,9 +69,9 @@
             this.panel1.Controls.Add(this.textBox4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 21);
+            this.panel1.Location = new System.Drawing.Point(12, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(486, 145);
+            this.panel1.Size = new System.Drawing.Size(486, 138);
             this.panel1.TabIndex = 0;
             // 
             // displayBalance
@@ -205,7 +205,7 @@
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.btnPrinter);
             this.panel2.Controls.Add(this.insertCashBook);
-            this.panel2.Location = new System.Drawing.Point(504, 21);
+            this.panel2.Location = new System.Drawing.Point(504, 28);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(255, 76);
             this.panel2.TabIndex = 1;
@@ -235,7 +235,7 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 183);
+            this.dataGridView1.Location = new System.Drawing.Point(11, 171);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
