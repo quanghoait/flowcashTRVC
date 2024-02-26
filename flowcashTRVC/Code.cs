@@ -18,8 +18,12 @@ namespace flowcashTRVC
         public Code()
         {
             InitializeComponent();
+
         }
 
+
+        
+      
         private void Code_Load(object sender, EventArgs e)
         {
 
@@ -292,6 +296,12 @@ namespace flowcashTRVC
                     }
                 }
             }
+        }
+
+        private void btnChoose_Click(object sender, EventArgs e)
+        {
+            Cashbook cashbook = new Cashbook(txtNo.Text.ToString());
+           
         }
     }
 }

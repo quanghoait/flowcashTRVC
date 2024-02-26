@@ -29,23 +29,38 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCashBook1 = new System.Windows.Forms.Button();
             this.btnCode = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnCashBook1);
             this.panel1.Controls.Add(this.btnCode);
-            this.panel1.Location = new System.Drawing.Point(12, 35);
+            this.panel1.Location = new System.Drawing.Point(16, 43);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(701, 233);
+            this.panel1.Size = new System.Drawing.Size(935, 287);
             this.panel1.TabIndex = 0;
+            // 
+            // btnCashBook1
+            // 
+            this.btnCashBook1.Location = new System.Drawing.Point(190, 32);
+            this.btnCashBook1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCashBook1.Name = "btnCashBook1";
+            this.btnCashBook1.Size = new System.Drawing.Size(129, 50);
+            this.btnCashBook1.TabIndex = 1;
+            this.btnCashBook1.Text = "CashBook";
+            this.btnCashBook1.UseVisualStyleBackColor = true;
+            this.btnCashBook1.Click += new System.EventHandler(this.btnCashBook1_Click);
             // 
             // btnCode
             // 
-            this.btnCode.Location = new System.Drawing.Point(18, 26);
+            this.btnCode.Location = new System.Drawing.Point(24, 32);
+            this.btnCode.Margin = new System.Windows.Forms.Padding(4);
             this.btnCode.Name = "btnCode";
-            this.btnCode.Size = new System.Drawing.Size(97, 41);
+            this.btnCode.Size = new System.Drawing.Size(129, 50);
             this.btnCode.TabIndex = 0;
             this.btnCode.Text = "Code";
             this.btnCode.UseVisualStyleBackColor = true;
@@ -53,10 +68,11 @@
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 325);
+            this.ClientSize = new System.Drawing.Size(995, 400);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Home";
             this.Text = "Home";
             this.panel1.ResumeLayout(false);
@@ -68,5 +84,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCode;
+        private System.Windows.Forms.Button btnCashBook1;
     }
 }

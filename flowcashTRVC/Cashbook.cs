@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
+
 //using Word = Microsoft.Office.Interop.Word;
 //using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices.ComTypes;
@@ -20,7 +21,9 @@ namespace flowcashTRVC
 {
     public partial class Cashbook : Form
     {
-        
+        string strNhan;
+
+
 
         string host = "localhost";
         int port = 3306;
@@ -31,16 +34,21 @@ namespace flowcashTRVC
         public Cashbook()
         {
             InitializeComponent();
+
            // ExcelApp.Application excelApp = new ExcelApp.Application();
            // ExcelApp.Workbook excelBook = excelApp.Workbooks.Open("D:\\hoa\\test_1.xlsx");
 
             //DateTime dateTime = dateTimePickerCash.Value;
             //MessageBox.Show(""+dateTime.Year);
         }
+        public Cashbook(string giatrinhan) : this()
+        {
+            strNhan = giatrinhan;
+            lbMaCode.Text = strNhan;
+        }
 
 
 
-   
 
         private void label8_TextChanged(object sender, EventArgs e)
         {
@@ -103,7 +111,10 @@ namespace flowcashTRVC
 
         private void cbbKindCach_SelectedValueChanged(object sender, EventArgs e)
         {
-            
+            DateTime dateTime = dateTimePickerCash.Value;
+            //MessageBox.Show("" + dateTime.Year);
+            //MessageBox.Show("" + dateTime.Month);
+
             //MessageBox.Show(""+cbbKindCach.SelectedItem.ToString());
             string kind_cash = cbbKindCach.SelectedItem.ToString();
             string connString = "Server=" + host + ";Database=" + database
@@ -118,8 +129,10 @@ namespace flowcashTRVC
                     MySqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
+                        string textdisplayKindCash = reader["MaCash"].ToString()+ ""+dateTime.Year+""+dateTime.Month;
                         //MessageBox.Show(reader["MaCash"].ToString());
-                        displayKindCash.Text = reader["MaCash"].ToString();
+                        //displayKindCash.Text = reader["MaCash"].ToString();
+                        displayKindCash.Text = textdisplayKindCash;
                         //DateTime dateTime = dateTimePickerCash.Value;
                         //MessageBox.Show("" + dateTime.Year);
 
@@ -131,26 +144,25 @@ namespace flowcashTRVC
         private void insertCashBook_Click(object sender, EventArgs e)
         {
             //string kind_cash = cbbKindCach.SelectedItem.ToString();
-            string connString = "Server=" + host + ";Database=" + database
-             + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
+            //string connString = "Server=" + host + ";Database=" + database
+            // + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            //string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
 
-            using (MySqlConnection connection = new MySqlConnection(connString))
-            {
-                using (MySqlCommand cmd = new MySqlCommand(request, connection))
-                {
-                    connection.Open();
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
+            //using (MySqlConnection connection = new MySqlConnection(connString))
+            //{
+            //    using (MySqlCommand cmd = new MySqlCommand(request, connection))
+            //    {
+            //        connection.Open();
+            //        MySqlDataReader reader = cmd.ExecuteReader();
+            //        while (reader.Read())
+            //        {
                         
-                        displayBalance.Text = reader["Balance"].ToString();
-                        //DateTime dateTime = dateTimePickerCash.Value;
-                        //MessageBox.Show("" + dateTime.Year);
+            //            displayBalance.Text = reader["Balance"].ToString();
+                      
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
         }
 
         private void btnPrinter_Click(object sender, EventArgs e)
@@ -171,6 +183,34 @@ namespace flowcashTRVC
         {
 
         }
+
+        private void Cashbook_Load(object sender, EventArgs e)
+        {
+
+            string connString = "Server=" + host + ";Database=" + database
+       + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string request = "SELECT * FROM CashBook";
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                {
+                    connection.Open();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+                    dataViewCashBook.DataSource = dataTable;
+                }
+
+            }
+           
+        }
+
+        private void bynshowCode_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
     }
 

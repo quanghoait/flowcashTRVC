@@ -21,5 +21,11 @@ namespace flowcashTRVC
            Code code = new Code();
            code.Show();
          }
+
+        private void btnCashBook1_Click(object sender, EventArgs e)
+        {
+            Cashbook cbook = new Cashbook();
+            cbook.Show();
+        }
     }
 }
