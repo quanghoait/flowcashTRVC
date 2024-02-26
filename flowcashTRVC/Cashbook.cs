@@ -204,13 +204,28 @@ namespace flowcashTRVC
             }
            
         }
+        public void getValue(string value)
+        {
+            lbMaCode.Text = value;
+        }
 
         private void bynshowCode_Click(object sender, EventArgs e)
         {
-
+            Code code = new Code();
+            code.myData = new Code.getData(getValue);
+            code.Show();
         }
 
-        
+        private void button4_Click(object sender, EventArgs e)
+        {
+        //    txtNo.Text = String.Empty;
+        //    txtS_code.Text = String.Empty;
+        //    txtItemName.Text = String.Empty;
+        //    txtKind.Text = String.Empty;
+        //    txtAccount_No.Text = String.Empty;
+        //    txtBank.Text = String.Empty;
+        //    txtType.Text = String.Empty;
+        }
     }
     }
 

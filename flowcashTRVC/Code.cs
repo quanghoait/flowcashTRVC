@@ -297,11 +297,24 @@ namespace flowcashTRVC
                 }
             }
         }
-
+        public delegate void getData(string data);
+        public getData myData;
         private void btnChoose_Click(object sender, EventArgs e)
         {
-            Cashbook cashbook = new Cashbook(txtNo.Text.ToString());
+           myData(txtNo.Text);
            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            txtNo.Text = String.Empty;
+            txtF.Text = String.Empty;
+            txtS_code.Text = String.Empty;
+            txtItemName.Text = String.Empty;
+            txtKind.Text = String.Empty;
+            txtAccount_No.Text = String.Empty;
+            txtBank.Text = String.Empty;
+            txtType.Text = String.Empty;
         }
     }
 }
