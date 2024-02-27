@@ -299,10 +299,16 @@ namespace flowcashTRVC
         }
         public delegate void getData(string data);
         public getData myData;
+        public delegate void getData1(string data1);
+        public getData1 myData1;
+        //public getData myData1;
         private void btnChoose_Click(object sender, EventArgs e)
         {
-           myData(txtNo.Text);
-           
+              myData(txtS_code.Text);
+              myData1(txtF.Text);
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)

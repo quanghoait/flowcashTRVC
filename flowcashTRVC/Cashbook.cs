@@ -144,36 +144,10 @@ namespace flowcashTRVC
        
         private void insertCashBook_Click(object sender, EventArgs e)
         {
-            //string kind_cash = cbbKindCach.SelectedItem.ToString();
-            // string kind_cash = cbbKindCach.SelectedItem.ToString();
-            //string connString = "Server=" + host + ";Database=" + database
-            // + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            //string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
-
-            //using (MySqlConnection connection = new MySqlConnection(connString))
-            //{
-            //    using (MySqlCommand cmd = new MySqlCommand(request, connection))
-            //    {
-            //        connection.Open();
-            //        MySqlDataReader reader = cmd.ExecuteReader();
-            //        while (reader.Read())
-            //        {
-
-            //            displayBalance.Text = reader["Balance"].ToString();
-
-
-            //        }
-            //    }
-            //}
-            string host = "localhost";
-            int port = 3306;
-            string database = "ManagerFlowMonneyTrad";
-            string username = "root";
-            string password = "Trad99999";
-
+           
             string connString = "Server=" + host + ";Database=" + database
-       + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            string request = "SELECT * FROM MaCashTable where NameMa = Cash";
+             + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
 
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
@@ -183,32 +157,18 @@ namespace flowcashTRVC
                     MySqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        string textdisplayKindCash = reader["ID_Cash"].ToString();
-                        //MessageBox.Show(reader["MaCash"].ToString());
-                        //displayKindCash.Text = reader["MaCash"].ToString();
-                        displayKindCash.Text = textdisplayKindCash;
-                        //DateTime dateTime = dateTimePickerCash.Value;
-                        //MessageBox.Show("" + dateTime.Year);
+                        float Balace = float.Parse(reader["Balance"].ToString());
+                        float sumBalace = Balace + float.Parse(txtIncome.Text) - float.Parse(txtPayment.Text);
+                        MessageBox.Show("" + sumBalace);
+
+                        //displayBalance.Text = reader["Balance"];
+
+
 
                     }
                 }
             }
-            //string request = "INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ('"+txtS_code.Text+ "','"+txtAccount_No.Text+ "','"+txtItemName.Text+ "','"+txtKind.Text+ "','"+txtBank.Text+ "','"+txtType.Text + "')"; 
-            //string request = "INSERT INTO CashBook( ID_Cash,ID,Date_Cash,Decscription,Income,Payment,Balance) VALUES ('"++"',2,'2008-11-11',\"Receive money from debit note 2310-02- Tax receivable from Takasago\",5000,3000,19000);";
-            //using (MySqlConnection connection = new MySqlConnection(connString))
-            //{
-            //    using (MySqlCommand cmd = new MySqlCommand(request, connection))
-            //    {
-            //        connection.Open();
-            //        cmd.ExecuteNonQuery();
-            //        connection.Close();
-            //       // Read_Data();
-            //        //txtItemName.Text = String.Empty;
-
-
-            //    }
-
-            //}
+           
         }
 
         private void btnPrinter_Click(object sender, EventArgs e)
@@ -254,11 +214,16 @@ namespace flowcashTRVC
         {
             lbMaCode.Text = value;
         }
+        public void getValue1(string value)
+        {
+            lbNameCode.Text = value;
+        }
 
         private void bynshowCode_Click(object sender, EventArgs e)
         {
             Code code = new Code();
             code.myData = new Code.getData(getValue);
+            code.myData1 = new Code.getData1(getValue1);
             code.Show();
         }
 
@@ -271,6 +236,36 @@ namespace flowcashTRVC
         //    txtAccount_No.Text = String.Empty;
         //    txtBank.Text = String.Empty;
         //    txtType.Text = String.Empty;
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPayment_TextChanged(object sender, EventArgs e)
+        {
+            string connString = "Server=" + host + ";Database=" + database
+             + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                {
+                    connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        float Balace = float.Parse(reader["Balance"].ToString());
+                        float sumBalace = Balace + float.Parse(txtIncome.Text) - float.Parse(txtPayment.Text);
+                        displayBalance.Text = sumBalace.ToString();
+
+
+
+                    }
+                }
+            }
         }
     }
     }

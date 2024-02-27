@@ -14,17 +14,26 @@ INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES (
 INSERT INTO employee( Username,Password,IDper) VALUES ("PhuongLan","lan123",2);
 SELECT * FROM CodeTable; 
 DROP TABLE CodeTable;
-CREATE TABLE  CashBook(ID_CashBook  INT AUTO_INCREMENT,ID_Cash int, FOREIGN KEY (ID_Cash) REFERENCES MaCashTable(ID_Cash) ,Date_Cash date Not NULL, Decscription varchar(200) Not NULL, Income long DEFAULT NULL,Payment long DEFAULT NULL,Balance long DEFAULT NULL, PRIMARY KEY (ID_CashBook) ); 
-INSERT INTO CashBook( ID_Cash,Date_Cash,Decscription,Income,Payment,Balance) VALUES (2,'2008-11-11',"Receive money from debit note 2310-02- Tax receivable from Takasago",5000,3000,18000);
-INSERT INTO CashBook( ID_Cash,ID,Date_Cash,Decscription,Income,Payment,Balance) VALUES (2,2,'2008-11-11',"Receive money from debit note 2310-02- Tax receivable from Takasago",5000,3000,19000);
+CREATE TABLE  CashBook(
+ID_CashBook  INT AUTO_INCREMENT,
+Ma varchar(150) Not NULL,
+  Date_Cash date Not NULL,
+ Decscription varchar(200) Not NULL,
+ Income float  DEFAULT NULL,
+ Payment float DEFAULT  NULL,
+ Balance  float DEFAULT NULL,
+SupplierCode varchar(150) Not NULL,
+ SupplierName varchar(150) Not NULL,
+ PRIMARY KEY (ID_CashBook) ); 
+INSERT INTO CashBook( Ma,Date_Cash,Decscription,Income,Payment,Balance,SupplierCode,SupplierName) VALUES ("TM20242",'2024-02-27',"Receive money from debit note 2310-02- Tax receivable from Takasago",5000,3000,18000,"ksdks","llsjdls");
 INSERT INTO CashBook( ID_Cash,Date_Cash,Decscription,Income,Payment,Balance) VALUES (3,'2023-5-25',"Receive money from debit note 2310-02- Tax receivable from Takasago",5000,3000,18000);
 INSERT INTO CashBook( ID_Cash,Date_Cash,Decscription,Income,Payment,Balance) VALUES (4,'2024-1-27',"Receive money from debit note 2000-02- Tax receivable from Takasago",6000,1000,12000);
 DROP TABLE CashBook;
-SELECT * FROM CashBook; 
+SELECT * FROM CashBook ;
 CREATE TABLE  MaCashTable(ID_Cash  INT AUTO_INCREMENT,MaCash varchar(200) not NULL, NameMa varchar(200) Not NULL, PRIMARY KEY (ID_Cash)); 
 INSERT INTO MaCashTable( MaCash,NameMa) VALUES ("TM","Cash");
 INSERT INTO MaCashTable( MaCash,NameMa) VALUES ("VD","VND (VIETCOMBANK)");
-INSERT INTO MaCashTable( MaCash,NameMa) VALUES ("MD","H15-795-011595");
+INSERT INTO MaCashTable( MaCash,NameMa3) VALUES ("MD","H15-795-011595");
 INSERT INTO MaCashTable( MaCash,NameMa) VALUES ("MU","F15-795-011587");
 INSERT INTO MaCashTable( MaCash,NameMa) VALUES ("MY","F15-795-011919");
 SELECT MaCash FROM MaCashTable where NameMa ="H15-795-011595";
