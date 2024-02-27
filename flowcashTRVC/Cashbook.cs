@@ -16,6 +16,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 //using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices.ComTypes;
 using Microsoft.Office.Interop.Excel;
+using System.Security.Policy;
 
 namespace flowcashTRVC
 {
@@ -80,11 +81,11 @@ namespace flowcashTRVC
 
         private void maCash_Click(object sender, EventArgs e)
         {
-            
+
             //string kind_cash = "H15-795-011595";
             //string connString = "Server=" + host + ";Database=" + database
             // + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            //string request = "SELECT MaCash FROM MaCashTable where NameMa ='"+ kind_cash +"'";
+            //string request = "SELECT MaCash FROM MaCashTable where NameMa ='" + kind_cash + "'";
             //using (MySqlConnection connection = new MySqlConnection(connString))
             //{
             //    using (MySqlCommand cmd = new MySqlCommand(request, connection))
@@ -93,7 +94,7 @@ namespace flowcashTRVC
             //        MySqlDataReader reader = cmd.ExecuteReader();
             //        while (reader.Read())
             //        {
-            //            MessageBox.Show(reader["MaCash"].ToString());  
+            //            MessageBox.Show(reader["MaCash"].ToString());
             //        }
             //    }
             //}
@@ -140,10 +141,11 @@ namespace flowcashTRVC
                 }
             }
         }
-
+       
         private void insertCashBook_Click(object sender, EventArgs e)
         {
             //string kind_cash = cbbKindCach.SelectedItem.ToString();
+            // string kind_cash = cbbKindCach.SelectedItem.ToString();
             //string connString = "Server=" + host + ";Database=" + database
             // + ";port=" + port + ";User Id=" + username + ";password=" + password;
             //string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
@@ -156,12 +158,56 @@ namespace flowcashTRVC
             //        MySqlDataReader reader = cmd.ExecuteReader();
             //        while (reader.Read())
             //        {
-                        
+
             //            displayBalance.Text = reader["Balance"].ToString();
-                      
+
 
             //        }
             //    }
+            //}
+            string host = "localhost";
+            int port = 3306;
+            string database = "ManagerFlowMonneyTrad";
+            string username = "root";
+            string password = "Trad99999";
+
+            string connString = "Server=" + host + ";Database=" + database
+       + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string request = "SELECT * FROM MaCashTable where NameMa = Cash";
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                {
+                    connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        string textdisplayKindCash = reader["ID_Cash"].ToString();
+                        //MessageBox.Show(reader["MaCash"].ToString());
+                        //displayKindCash.Text = reader["MaCash"].ToString();
+                        displayKindCash.Text = textdisplayKindCash;
+                        //DateTime dateTime = dateTimePickerCash.Value;
+                        //MessageBox.Show("" + dateTime.Year);
+
+                    }
+                }
+            }
+            //string request = "INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ('"+txtS_code.Text+ "','"+txtAccount_No.Text+ "','"+txtItemName.Text+ "','"+txtKind.Text+ "','"+txtBank.Text+ "','"+txtType.Text + "')"; 
+            //string request = "INSERT INTO CashBook( ID_Cash,ID,Date_Cash,Decscription,Income,Payment,Balance) VALUES ('"++"',2,'2008-11-11',\"Receive money from debit note 2310-02- Tax receivable from Takasago\",5000,3000,19000);";
+            //using (MySqlConnection connection = new MySqlConnection(connString))
+            //{
+            //    using (MySqlCommand cmd = new MySqlCommand(request, connection))
+            //    {
+            //        connection.Open();
+            //        cmd.ExecuteNonQuery();
+            //        connection.Close();
+            //       // Read_Data();
+            //        //txtItemName.Text = String.Empty;
+
+
+            //    }
+
             //}
         }
 
@@ -202,7 +248,7 @@ namespace flowcashTRVC
                 }
 
             }
-           
+
         }
         public void getValue(string value)
         {

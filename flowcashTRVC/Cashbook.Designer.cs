@@ -38,11 +38,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePickerCash = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtPayment = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtIncome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textDecscription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,10 +53,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnPrinter = new System.Windows.Forms.Button();
             this.insertCashBook = new System.Windows.Forms.Button();
-            this.dataViewCashBook = new System.Windows.Forms.DataGridView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataViewCashBook = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewCashBook)).BeginInit();
@@ -74,11 +74,11 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.dateTimePickerCash);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.textBox6);
+            this.panel1.Controls.Add(this.txtPayment);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.textBox5);
+            this.panel1.Controls.Add(this.txtIncome);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.textBox4);
+            this.panel1.Controls.Add(this.textDecscription);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(12, 53);
@@ -173,12 +173,12 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Payment";
             // 
-            // textBox6
+            // txtPayment
             // 
-            this.textBox6.Location = new System.Drawing.Point(498, 42);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(111, 20);
-            this.textBox6.TabIndex = 11;
+            this.txtPayment.Location = new System.Drawing.Point(498, 42);
+            this.txtPayment.Name = "txtPayment";
+            this.txtPayment.Size = new System.Drawing.Size(111, 20);
+            this.txtPayment.TabIndex = 11;
             // 
             // label5
             // 
@@ -189,12 +189,12 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Income";
             // 
-            // textBox5
+            // txtIncome
             // 
-            this.textBox5.Location = new System.Drawing.Point(498, 11);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(111, 20);
-            this.textBox5.TabIndex = 9;
+            this.txtIncome.Location = new System.Drawing.Point(498, 11);
+            this.txtIncome.Name = "txtIncome";
+            this.txtIncome.Size = new System.Drawing.Size(111, 20);
+            this.txtIncome.TabIndex = 9;
             // 
             // label4
             // 
@@ -205,13 +205,13 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Decscription";
             // 
-            // textBox4
+            // textDecscription
             // 
-            this.textBox4.Location = new System.Drawing.Point(70, 98);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(356, 60);
-            this.textBox4.TabIndex = 7;
+            this.textDecscription.Location = new System.Drawing.Point(70, 98);
+            this.textDecscription.Multiline = true;
+            this.textDecscription.Name = "textDecscription";
+            this.textDecscription.Size = new System.Drawing.Size(332, 60);
+            this.textDecscription.TabIndex = 7;
             // 
             // label3
             // 
@@ -320,17 +320,6 @@
             this.insertCashBook.UseVisualStyleBackColor = false;
             this.insertCashBook.Click += new System.EventHandler(this.insertCashBook_Click);
             // 
-            // dataViewCashBook
-            // 
-            this.dataViewCashBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewCashBook.Location = new System.Drawing.Point(9, 219);
-            this.dataViewCashBook.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataViewCashBook.Name = "dataViewCashBook";
-            this.dataViewCashBook.RowHeadersWidth = 51;
-            this.dataViewCashBook.RowTemplate.Height = 24;
-            this.dataViewCashBook.Size = new System.Drawing.Size(842, 168);
-            this.dataViewCashBook.TabIndex = 2;
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -359,6 +348,17 @@
             this.textBox1.Size = new System.Drawing.Size(421, 20);
             this.textBox1.TabIndex = 17;
             // 
+            // dataViewCashBook
+            // 
+            this.dataViewCashBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewCashBook.Location = new System.Drawing.Point(9, 219);
+            this.dataViewCashBook.Margin = new System.Windows.Forms.Padding(2);
+            this.dataViewCashBook.Name = "dataViewCashBook";
+            this.dataViewCashBook.RowHeadersWidth = 51;
+            this.dataViewCashBook.RowTemplate.Height = 24;
+            this.dataViewCashBook.Size = new System.Drawing.Size(842, 168);
+            this.dataViewCashBook.TabIndex = 2;
+            // 
             // Cashbook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,13 +384,13 @@
 
         #endregion
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textDecscription;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtPayment;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtIncome;
         private System.Windows.Forms.DateTimePicker dateTimePickerCash;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cbbKindCach;
@@ -400,7 +400,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button insertCashBook;
         private System.Windows.Forms.Button btnPrinter;
-        private System.Windows.Forms.DataGridView dataViewCashBook;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -412,5 +411,6 @@
         public System.Windows.Forms.Label lbMaCode;
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button bynshowCode;
+        private System.Windows.Forms.DataGridView dataViewCashBook;
     }
 }
