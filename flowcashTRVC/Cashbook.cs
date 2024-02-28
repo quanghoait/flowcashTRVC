@@ -144,31 +144,46 @@ namespace flowcashTRVC
        
         private void insertCashBook_Click(object sender, EventArgs e)
         {
-           
-            string connString = "Server=" + host + ";Database=" + database
-             + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
 
+            DateTime dateTime = dateTimePickerCash.Value;
+            string connString = "Server=" + host + ";Database=" + database
+      + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            //string request = "INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ('"+txtS_code.Text+ "','"+txtAccount_No.Text+ "','"+txtItemName.Text+ "','"+txtKind.Text+ "','"+txtBank.Text+ "','"+txtType.Text + "')"; 
+            string request = "INSERT INTO CashBook( Ma,Date_Cash,Decscription,Income,Payment,Balance,SupplierCode,SupplierName) VALUES ('"+displayKindCash.Text+ "','"+dateTime.ToShortDateString()+ "','"+textDecscription.Text+ "','"+txtIncome.Text+ "','"+txtPayment.Text+ "','"+displayBalance.Text+ "','"+lbMaCode.Text+ "','"+lbNameCode.Text+ "');";
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(request, connection))
                 {
                     connection.Open();
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        float Balace = float.Parse(reader["Balance"].ToString());
-                        float sumBalace = Balace + float.Parse(txtIncome.Text) - float.Parse(txtPayment.Text);
-                        MessageBox.Show("" + sumBalace);
-
-                        //displayBalance.Text = reader["Balance"];
+                    cmd.ExecuteNonQuery();
+                    connection.Close();
+                    Read_Data();
 
 
-
-                    }
                 }
+
             }
-           
+
+
+        }
+        private void Read_Data()
+        {
+            string connString = "Server=" + host + ";Database=" + database
+      + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string request = "SELECT * FROM CashBook";
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                {
+                    connection.Open();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+                    dataViewCashBook.DataSource = dataTable;
+                }
+
+            }
+
         }
 
         private void btnPrinter_Click(object sender, EventArgs e)
@@ -261,11 +276,24 @@ namespace flowcashTRVC
                         float sumBalace = Balace + float.Parse(txtIncome.Text) - float.Parse(txtPayment.Text);
                         displayBalance.Text = sumBalace.ToString();
 
-
-
                     }
                 }
             }
+        }
+
+        private void dataViewCashBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            int i;
+            i = dataViewCashBook.CurrentRow.Index;
+           displayKindCash.Text = dataViewCashBook.Rows[i].Cells[0].Value.ToString();
+            txtS_code.Text = dataViewCashBook.Rows[i].Cells[1].Value.ToString();
+            txtF.Text = dataGridViewCode.Rows[i].Cells[2].Value.ToString();
+            txtItemName.Text = dataGridViewCode.Rows[i].Cells[3].Value.ToString();
+            txtKind.Text = dataGridViewCode.Rows[i].Cells[4].Value.ToString();
+            txtAccount_No.Text = dataGridViewCode.Rows[i].Cells[5].Value.ToString();
+            txtBank.Text = dataGridViewCode.Rows[i].Cells[6].Value.ToString();
+            txtType.Text = dataGridViewCode.Rows[i].Cells[7].Value.ToString();
         }
     }
     }

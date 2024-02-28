@@ -294,7 +294,7 @@
             this.bynshowCode.Location = new System.Drawing.Point(119, 42);
             this.bynshowCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bynshowCode.Name = "bynshowCode";
-            this.bynshowCode.Size = new System.Drawing.Size(81, 25);
+            this.bynshowCode.Size = new System.Drawing.Size(106, 25);
             this.bynshowCode.TabIndex = 19;
             this.bynshowCode.Text = "Code";
             this.bynshowCode.UseVisualStyleBackColor = true;
@@ -339,9 +339,9 @@
             this.btnPrinter.Location = new System.Drawing.Point(118, 8);
             this.btnPrinter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPrinter.Name = "btnPrinter";
-            this.btnPrinter.Size = new System.Drawing.Size(81, 25);
+            this.btnPrinter.Size = new System.Drawing.Size(107, 25);
             this.btnPrinter.TabIndex = 1;
-            this.btnPrinter.Text = "printer";
+            this.btnPrinter.Text = "Export Excel";
             this.btnPrinter.UseVisualStyleBackColor = true;
             this.btnPrinter.Click += new System.EventHandler(this.btnPrinter_Click);
             // 
@@ -402,13 +402,14 @@
             // dataViewCashBook
             // 
             this.dataViewCashBook.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewCashBook.Location = new System.Drawing.Point(12, 283);
+            this.dataViewCashBook.Location = new System.Drawing.Point(12, 269);
             this.dataViewCashBook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataViewCashBook.Name = "dataViewCashBook";
             this.dataViewCashBook.RowHeadersWidth = 51;
             this.dataViewCashBook.RowTemplate.Height = 24;
             this.dataViewCashBook.Size = new System.Drawing.Size(1220, 269);
             this.dataViewCashBook.TabIndex = 2;
+            this.dataViewCashBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewCashBook_CellContentClick);
             // 
             // Cashbook
             // 
