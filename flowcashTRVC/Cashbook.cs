@@ -380,24 +380,11 @@ namespace flowcashTRVC
                         dataViewCashBook.DataSource = dataTable;
                     }
 
-<<<<<<< HEAD
-            int i;
-            i = dataViewCashBook.CurrentRow.Index;
-           displayKindCash.Text = dataViewCashBook.Rows[i].Cells[0].Value.ToString();
-            dateTimePickerCash.Text = dataViewCashBook.Rows[i].Cells[1].Value.ToString();
-            txtF.Text = dataGridViewCode.Rows[i].Cells[2].Value.ToString();
-            txtItemName.Text = dataGridViewCode.Rows[i].Cells[3].Value.ToString();
-            txtKind.Text = dataGridViewCode.Rows[i].Cells[4].Value.ToString();
-            txtAccount_No.Text = dataGridViewCode.Rows[i].Cells[5].Value.ToString();
-            txtBank.Text = dataGridViewCode.Rows[i].Cells[6].Value.ToString();
-            txtType.Text = dataGridViewCode.Rows[i].Cells[7].Value.ToString();
-=======
-                
-            }
->>>>>>> 26b8f11708aef06b9f4bfba8ce70dbeced58c0b6
-        }
-    }
-    }
+
+
+        
+    
+    
 
 
        
