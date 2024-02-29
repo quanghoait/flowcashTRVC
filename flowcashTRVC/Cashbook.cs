@@ -287,7 +287,7 @@ namespace flowcashTRVC
             int i;
             i = dataViewCashBook.CurrentRow.Index;
            displayKindCash.Text = dataViewCashBook.Rows[i].Cells[0].Value.ToString();
-            txtS_code.Text = dataViewCashBook.Rows[i].Cells[1].Value.ToString();
+            dateTimePickerCash.Text = dataViewCashBook.Rows[i].Cells[1].Value.ToString();
             txtF.Text = dataGridViewCode.Rows[i].Cells[2].Value.ToString();
             txtItemName.Text = dataGridViewCode.Rows[i].Cells[3].Value.ToString();
             txtKind.Text = dataGridViewCode.Rows[i].Cells[4].Value.ToString();
