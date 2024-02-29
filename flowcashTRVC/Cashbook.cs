@@ -193,7 +193,7 @@ namespace flowcashTRVC
             //var newSheet = newWB.Worksheets;
             //newSheet.Name = "CashBook";
             //newSheet.Cells.InsertRows(1, 2);
-           // string saveExcelFile = @"f:\excel_report.xlsx";
+            // string saveExcelFile = @"f:\excel_report.xlsx";
 
             Excel.Application excelApp = new Excel.Application();
             excelApp.Visible = true;
@@ -201,15 +201,15 @@ namespace flowcashTRVC
             Worksheet ws;
             object misValue = System.Reflection.Missing.Value;
             wb = excelApp.Workbooks.Add(misValue);
-          //  ws = wb.Worksheets[1];
+            //  ws = wb.Worksheets[1];
             //Range 
             //Excel.Workbook excelWB = excelApp.Workbooks.Add();
             //Excel._Worksheet excelWS = excelWB.ActiveSheet;
-           // Worksheet ws = (Worksheet)wb.Worksheets[1];
+            // Worksheet ws = (Worksheet)wb.Worksheets[1];
 
 
         }
-    
+
 
         private void Cashbook_Load(object sender, EventArgs e)
         {
@@ -248,50 +248,50 @@ namespace flowcashTRVC
             code.Show();
         }
 
-        
 
-  
+
+
 
         private void txtPayment_TextChanged(object sender, EventArgs e)
         {
-            
-            
-               
-            
-            
-                string connString = "Server=" + host + ";Database=" + database
-            + ";port=" + port + ";User Id=" + username + ";password=" + password;
-                string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
 
-                using (MySqlConnection connection = new MySqlConnection(connString))
+
+
+
+
+            string connString = "Server=" + host + ";Database=" + database
+        + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
+
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(request, connection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                    connection.Open();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
                     {
-                        connection.Open();
-                        MySqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read())
-                        {
 
                         float Balace = float.Parse(reader["Balance"].ToString());
                         float sumBalace = Balace + float.Parse(txtIncome.Text) - float.Parse(txtPayment.Text);
                         displayBalance.Text = sumBalace.ToString();
 
                     }
-                    }
                 }
             }
-           
-        
+        }
+
+
 
         private void dataViewCashBook_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DateTime dateTime = dateTimePickerCash.Value; 
+            DateTime dateTime = dateTimePickerCash.Value;
             int i;
             i = dataViewCashBook.CurrentRow.Index;
-           displayKindCash.Text = dataViewCashBook.Rows[i].Cells[1].Value.ToString();
-           dateTimePickerCash.Text = dataViewCashBook.Rows[i].Cells[2].Value.ToString();
+            displayKindCash.Text = dataViewCashBook.Rows[i].Cells[1].Value.ToString();
+            dateTimePickerCash.Text = dataViewCashBook.Rows[i].Cells[2].Value.ToString();
             textDecscription.Text = dataViewCashBook.Rows[i].Cells[3].Value.ToString();
-           txtIncome.Text = dataViewCashBook.Rows[i].Cells[4].Value.ToString();
+            txtIncome.Text = dataViewCashBook.Rows[i].Cells[4].Value.ToString();
             txtPayment.Text = dataViewCashBook.Rows[i].Cells[5].Value.ToString();
             displayBalance.Text = dataViewCashBook.Rows[i].Cells[6].Value.ToString();
             lbMaCode.Text = dataViewCashBook.Rows[i].Cells[7].Value.ToString();
@@ -316,7 +316,7 @@ namespace flowcashTRVC
             string connString = "Server=" + host + ";Database=" + database
       + ";port=" + port + ";User Id=" + username + ";password=" + password;
             // string request = "INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ('" + txtS_code.Text + "','" + txtAccount_No.Text + "','" + txtItemName.Text + "','" + txtKind.Text + "','" + txtBank.Text + "','" + txtType.Text + "')";
-             string request = "UPDATE CashBook SET Ma = '" + displayKindCash.Text + "', Date_Cash = '" +dateTime.ToShortDateString()+ "',Decscription = '" + textDecscription.Text + "',Income = '" + txtIncome.Text + "',Payment = '" + txtPayment.Text + "',SupplierCode = '" + lbMaCode.Text + "',SupplierName = '" + lbNameCode.Text + "' WHERE ID_CashBook = '" + txtNocashbook.Text + "';";
+            string request = "UPDATE CashBook SET Ma = '" + displayKindCash.Text + "', Date_Cash = '" + dateTime.ToShortDateString() + "',Decscription = '" + textDecscription.Text + "',Income = '" + txtIncome.Text + "',Payment = '" + txtPayment.Text + "',SupplierCode = '" + lbMaCode.Text + "',SupplierName = '" + lbNameCode.Text + "' WHERE ID_CashBook = '" + txtNocashbook.Text + "';";
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(request, connection))
@@ -365,25 +365,28 @@ namespace flowcashTRVC
 
         private void btnSeachCashbook_Click(object sender, EventArgs e)
         {
-            
-                string connString = "Server=" + host + ";Database=" + database
-      + ";port=" + port + ";User Id=" + username + ";password=" + password;
-                string request = "SELECT * FROM CashBook where Ma like '%" + txtSeachCachBook.Text.Trim() + "%' ";
-                using (MySqlConnection connection = new MySqlConnection(connString))
+
+            string connString = "Server=" + host + ";Database=" + database
+  + ";port=" + port + ";User Id=" + username + ";password=" + password;
+            string request = "SELECT * FROM CashBook where Ma like '%" + txtSeachCachBook.Text.Trim() + "%' ";
+            using (MySqlConnection connection = new MySqlConnection(connString))
+            {
+                using (MySqlCommand cmd = new MySqlCommand(request, connection))
                 {
-                    using (MySqlCommand cmd = new MySqlCommand(request, connection))
-                    {
-                        connection.Open();
-                        MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                        System.Data.DataTable dataTable = new System.Data.DataTable();
-                        adapter.Fill(dataTable);
-                        dataViewCashBook.DataSource = dataTable;
-                    }
+                    connection.Open();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    System.Data.DataTable dataTable = new System.Data.DataTable();
+                    adapter.Fill(dataTable);
+                    dataViewCashBook.DataSource = dataTable;
+                }
 
 
 
-        
-    
+
+            }
+        }
+    }
+}
     
 
 
