@@ -49,16 +49,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.bynshowCode = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRefesh = new System.Windows.Forms.Button();
+            this.btnDeleteCashBook = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.btnPrinter = new System.Windows.Forms.Button();
             this.insertCashBook = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSeachCashbook = new System.Windows.Forms.Button();
+            this.txtSeachCachBook = new System.Windows.Forms.TextBox();
             this.dataViewCashBook = new System.Windows.Forms.DataGridView();
+            this.txtNocashbook = new System.Windows.Forms.Label();
+            this.No = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewCashBook)).BeginInit();
@@ -67,6 +67,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.txtNocashbook);
+            this.panel1.Controls.Add(this.No);
             this.panel1.Controls.Add(this.lbNameCode);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lbMaCode);
@@ -110,7 +112,6 @@
             this.label10.Size = new System.Drawing.Size(100, 16);
             this.label10.TabIndex = 21;
             this.label10.Text = "Supplier Name:";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // lbMaCode
             // 
@@ -177,7 +178,7 @@
             this.cbbKindCach.Tag = "Cash";
             this.cbbKindCach.Text = "Cash";
             this.cbbKindCach.DropDown += new System.EventHandler(this.comboKindcash_DropDown);
-            this.cbbKindCach.SelectedIndexChanged += new System.EventHandler(this.cbbKindCach_SelectedIndexChanged);
+          
             this.cbbKindCach.SelectedValueChanged += new System.EventHandler(this.cbbKindCach_SelectedValueChanged);
             // 
             // label7
@@ -210,11 +211,14 @@
             // 
             // txtPayment
             // 
+            this.txtPayment.AcceptsReturn = true;
+            this.txtPayment.AcceptsTab = true;
             this.txtPayment.Location = new System.Drawing.Point(486, 36);
             this.txtPayment.Margin = new System.Windows.Forms.Padding(4);
             this.txtPayment.Name = "txtPayment";
             this.txtPayment.Size = new System.Drawing.Size(147, 22);
             this.txtPayment.TabIndex = 11;
+            this.txtPayment.Text = "0";
             this.txtPayment.TextChanged += new System.EventHandler(this.txtPayment_TextChanged);
             // 
             // label5
@@ -234,6 +238,7 @@
             this.txtIncome.Name = "txtIncome";
             this.txtIncome.Size = new System.Drawing.Size(147, 22);
             this.txtIncome.TabIndex = 9;
+            this.txtIncome.Text = "0";
             // 
             // label4
             // 
@@ -278,9 +283,9 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel2.Controls.Add(this.bynshowCode);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnRefesh);
+            this.panel2.Controls.Add(this.btnDeleteCashBook);
+            this.panel2.Controls.Add(this.btnEdit);
             this.panel2.Controls.Add(this.btnPrinter);
             this.panel2.Controls.Add(this.insertCashBook);
             this.panel2.Location = new System.Drawing.Point(939, 65);
@@ -300,39 +305,41 @@
             this.bynshowCode.UseVisualStyleBackColor = true;
             this.bynshowCode.Click += new System.EventHandler(this.bynshowCode_Click);
             // 
-            // button4
+            // btnRefesh
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button4.Location = new System.Drawing.Point(11, 97);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 28);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "Refesh";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnRefesh.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnRefesh.Location = new System.Drawing.Point(11, 97);
+            this.btnRefesh.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(100, 28);
+            this.btnRefesh.TabIndex = 18;
+            this.btnRefesh.Text = "Refesh";
+            this.btnRefesh.UseVisualStyleBackColor = false;
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
             // 
-            // button2
+            // btnDeleteCashBook
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button2.Location = new System.Drawing.Point(11, 65);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnDeleteCashBook.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnDeleteCashBook.Location = new System.Drawing.Point(11, 65);
+            this.btnDeleteCashBook.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDeleteCashBook.Name = "btnDeleteCashBook";
+            this.btnDeleteCashBook.Size = new System.Drawing.Size(100, 28);
+            this.btnDeleteCashBook.TabIndex = 3;
+            this.btnDeleteCashBook.Text = "Delete";
+            this.btnDeleteCashBook.UseVisualStyleBackColor = false;
+            this.btnDeleteCashBook.Click += new System.EventHandler(this.btnDeleteCashBook_Click);
             // 
-            // button1
+            // btnEdit
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button1.Location = new System.Drawing.Point(11, 36);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnEdit.Location = new System.Drawing.Point(11, 36);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(100, 28);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnPrinter
             // 
@@ -357,47 +364,25 @@
             this.insertCashBook.UseVisualStyleBackColor = false;
             this.insertCashBook.Click += new System.EventHandler(this.insertCashBook_Click);
             // 
-            // button3
+            // btnSeachCashbook
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button3.Location = new System.Drawing.Point(829, 33);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 28);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Seach";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSeachCashbook.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSeachCashbook.Location = new System.Drawing.Point(829, 33);
+            this.btnSeachCashbook.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSeachCashbook.Name = "btnSeachCashbook";
+            this.btnSeachCashbook.Size = new System.Drawing.Size(100, 28);
+            this.btnSeachCashbook.TabIndex = 4;
+            this.btnSeachCashbook.Text = "Seach";
+            this.btnSeachCashbook.UseVisualStyleBackColor = false;
+            this.btnSeachCashbook.Click += new System.EventHandler(this.btnSeachCashbook_Click);
             // 
-            // comboBox1
+            // txtSeachCachBook
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "H15-795-011595"});
-            this.comboBox1.Location = new System.Drawing.Point(101, 32);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 24);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.Tag = "Cash";
-            this.comboBox1.Text = "Cash";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 32);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(55, 16);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Look for";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(261, 33);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(560, 22);
-            this.textBox1.TabIndex = 17;
+            this.txtSeachCachBook.Location = new System.Drawing.Point(261, 33);
+            this.txtSeachCachBook.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSeachCachBook.Name = "txtSeachCachBook";
+            this.txtSeachCachBook.Size = new System.Drawing.Size(560, 22);
+            this.txtSeachCachBook.TabIndex = 17;
             // 
             // dataViewCashBook
             // 
@@ -411,15 +396,33 @@
             this.dataViewCashBook.TabIndex = 2;
             this.dataViewCashBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewCashBook_CellContentClick);
             // 
+            // txtNocashbook
+            // 
+            this.txtNocashbook.AutoSize = true;
+            this.txtNocashbook.Location = new System.Drawing.Point(513, 154);
+            this.txtNocashbook.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtNocashbook.Name = "txtNocashbook";
+            this.txtNocashbook.Size = new System.Drawing.Size(46, 16);
+            this.txtNocashbook.TabIndex = 24;
+            this.txtNocashbook.Text = "Defaut";
+            // 
+            // No
+            // 
+            this.No.AutoSize = true;
+            this.No.Location = new System.Drawing.Point(421, 154);
+            this.No.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.No.Name = "No";
+            this.No.Size = new System.Drawing.Size(25, 16);
+            this.No.TabIndex = 23;
+            this.No.Text = "No";
+            // 
             // Cashbook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1244, 563);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtSeachCachBook);
+            this.Controls.Add(this.btnSeachCashbook);
             this.Controls.Add(this.dataViewCashBook);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -454,13 +457,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button insertCashBook;
         private System.Windows.Forms.Button btnPrinter;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSeachCashbook;
+        private System.Windows.Forms.Button btnDeleteCashBook;
+        private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.TextBox txtSeachCachBook;
+        private System.Windows.Forms.Button btnRefesh;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.Label lbMaCode;
         public System.Windows.Forms.Panel panel1;
@@ -468,5 +469,7 @@
         private System.Windows.Forms.DataGridView dataViewCashBook;
         public System.Windows.Forms.Label lbNameCode;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label txtNocashbook;
+        private System.Windows.Forms.Label No;
     }
 }
