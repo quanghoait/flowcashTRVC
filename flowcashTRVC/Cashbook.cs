@@ -182,18 +182,8 @@ namespace flowcashTRVC
 
         }
 
-        private void btnPrinter_Click(object sender, EventArgs e)
+        private void btnPrinter_Click(object sender, EventArgs e, Range row782_Kind)
         {
-
-            //Excel.Application objXL = null;
-            //Excel._Workbook objWB = null;
-            //objXL = new Excel.Application();
-            //objXL.Visible = true;
-            //var newWB = objXL.Workbooks.Open("file:///D:\\hoa\\C#\\flowcashTRVC\\CashBook.xlsx");
-            //var newSheet = newWB.Worksheets;
-            //newSheet.Name = "CashBook";
-            //newSheet.Cells.InsertRows(1, 2);
-            // string saveExcelFile = @"f:\excel_report.xlsx";
 
             Excel.Application excelApp = new Excel.Application();
             excelApp.Visible = true;
@@ -201,11 +191,80 @@ namespace flowcashTRVC
             Worksheet ws;
             object misValue = System.Reflection.Missing.Value;
             wb = excelApp.Workbooks.Add(misValue);
-            //  ws = wb.Worksheets[1];
-            //Range 
-            //Excel.Workbook excelWB = excelApp.Workbooks.Add();
-            //Excel._Worksheet excelWS = excelWB.ActiveSheet;
-            // Worksheet ws = (Worksheet)wb.Worksheets[1];
+            ws = (Worksheet)wb.Worksheets[1];
+            ws.Name="export_month";
+            int row = 1;
+            string fontName = "Times New Roman";
+            int fontSizeTieuDe = 13;
+            int fontSizeTenTruong = 12;
+            int fontSizeNoiDung = 11;
+            //Range row1_TieuDe_ThongKeSanPham = ws.get_Range("A1", "E1");
+            //row1_TieuDe_ThongKeSanPham.Merge();
+            //row1_TieuDe_ThongKeSanPham.Font.Size = fontSizeTieuDe;
+            //row1_TieuDe_ThongKeSanPham.Font.Name = fontName;
+            //row1_TieuDe_ThongKeSanPham.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
+            //row1_TieuDe_ThongKeSanPham.Value2 = "Thống kê sản phẩm";
+            //Ma
+            Range row78_STT = ws.get_Range("A7", "A8");//Cột A dòng 2 và dòng 3
+            row78_STT.Merge();
+            row78_STT.Font.Size = fontSizeTenTruong;
+            row78_STT.Font.Name = fontName;
+            row78_STT.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            row78_STT.Value2 = "";
+            //No
+            Range row781_STT = ws.get_Range("B7", "B8");//Cột A dòng 2 và dòng 3
+            row781_STT.Merge();
+            row781_STT.Font.Size = fontSizeTenTruong;
+            row781_STT.Font.Name = fontName;
+            row781_STT.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            row781_STT.Value2 = "No";
+            //Date
+            Range row782_date = ws.get_Range("C7","C8");//Cột A dòng 2 và dòng 3
+            row782_date.Merge();
+            row782_date.Font.Size = fontSizeTenTruong;
+            row782_date.Font.Name = fontName;
+            row782_date.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            row782_date.Value2 = "Date";
+            //Decscription
+            Range row782_STT = ws.get_Range("D7","D8");//Cột A dòng 2 và dòng 3
+            row782_STT.Merge();
+            row782_STT.Font.Size = fontSizeTenTruong;
+            row782_STT.Font.Name = fontName;
+            row782_STT.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            row782_STT.Value2 = "Decscription";
+            //Kind
+            //Range row78_Kind = ws.get_Range("E7", "G7");//Cột A dòng 2 và dòng 3
+            //row78_Kind.Merge();
+            //row78_Kind.Font.Size = fontSizeTenTruong;
+            //row78_Kind.Font.Name = fontName;
+            //row78_Kind.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            //row78_Kind.Value2 = "VND (VIETCOMBANK)";
+            //Income
+           // Range row782_Icome = ws.get_Range("E8");//Cột A dòng 2 và dòng 3
+           //// row782_Icome.Merge();
+           // row782_Icome.Font.Size = fontSizeTenTruong;
+           // row782_Icome.Font.Name = fontName;
+           // row782_Icome.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+           // row782_Icome.Value2 = "Income";
+            //Payment
+           // Range row782_Payment = ws.get_Range("F8");//Cột A dòng 2 và dòng 3
+           //// row782_Payment.Merge();
+           // row782_Payment.Font.Size = fontSizeTenTruong;
+           // row782_Payment.Font.Name = fontName;
+           // row782_Payment.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+           // row782_Payment.Value2 = "Payment";
+           // //Blance
+           // Range row782_Blance = ws.get_Range("G8");//Cột A dòng 2 và dòng 3
+           // //row782_Blance.Merge();
+           // row782_Blance.Font.Size = fontSizeTenTruong;
+           // row782_Blance.Font.Name = fontName;
+           // row782_Blance.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+           // row782_Blance.Value2 = "Blance";
+
+
+
+
+
 
 
         }
@@ -258,7 +317,7 @@ namespace flowcashTRVC
 
             if (txtPayment.Text == "")
             {
-                txtPayment.Select();
+                txtPayment.Text="";
             }
             else
             {
@@ -313,10 +372,11 @@ namespace flowcashTRVC
             displayKindCash.Text = String.Empty;
             dateTimePickerCash.Text = String.Empty;
             textDecscription.Text = String.Empty;
-            txtIncome.Text = "0";
-            txtPayment.Text = "0";
+            txtIncome.Text = "";
+            txtPayment.Text = "";
             lbMaCode.Text = String.Empty;
             lbNameCode.Text = String.Empty;
+            displayBalance.Text = string.Empty;
         }
         // Edit 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -392,7 +452,14 @@ namespace flowcashTRVC
 
 
 
-            } } }}
+            } }
+
+        private void btnPrinter_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
     
 
 
