@@ -256,27 +256,36 @@ namespace flowcashTRVC
         {
 
 
-
-
-
-            string connString = "Server=" + host + ";Database=" + database
-        + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
-
-            using (MySqlConnection connection = new MySqlConnection(connString))
+            if (txtPayment.Text == "")
             {
-                using (MySqlCommand cmd = new MySqlCommand(request, connection))
-                {
-                    connection.Open();
-                    MySqlDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
-                    {
+                txtPayment.Select();
+            }
+            else
+            {
+                string connString = "Server=" + host + ";Database=" + database
+       + ";port=" + port + ";User Id=" + username + ";password=" + password;
+                string request = "SELECT Balance   FROM CashBook where ID_CashBook = (SELECT max(ID_CashBook)  FROM CashBook);";
 
-                        float Balace = float.Parse(reader["Balance"].ToString());
-                        float sumBalace = Balace + float.Parse(txtIncome.Text) - float.Parse(txtPayment.Text);
-                        displayBalance.Text = sumBalace.ToString();
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                    {
+                        connection.Open();
+                        MySqlDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+
+                            float Balace = float.Parse(reader["Balance"].ToString());
+                            float sumBalace = Balace + float.Parse(txtIncome.Text) - float.Parse(txtPayment.Text);
+                            displayBalance.Text = sumBalace.ToString();
+
+
+                        }
 
                     }
+
+
+           
                 }
             }
         }
@@ -383,10 +392,7 @@ namespace flowcashTRVC
 
 
 
-            }
-        }
-    }
-}
+            } } }}
     
 
 
