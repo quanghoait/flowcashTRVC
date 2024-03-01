@@ -79,7 +79,7 @@
             this.panel1.Controls.Add(this.txtS_code);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 47);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(676, 191);
             this.panel1.TabIndex = 0;
@@ -107,7 +107,7 @@
             // txtKind
             // 
             this.txtKind.Location = new System.Drawing.Point(83, 162);
-            this.txtKind.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtKind.Margin = new System.Windows.Forms.Padding(4);
             this.txtKind.Name = "txtKind";
             this.txtKind.Size = new System.Drawing.Size(168, 22);
             this.txtKind.TabIndex = 13;
@@ -125,7 +125,7 @@
             // txtType
             // 
             this.txtType.Location = new System.Drawing.Point(411, 142);
-            this.txtType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtType.Margin = new System.Windows.Forms.Padding(4);
             this.txtType.Name = "txtType";
             this.txtType.Size = new System.Drawing.Size(175, 22);
             this.txtType.TabIndex = 11;
@@ -143,7 +143,7 @@
             // txtBank
             // 
             this.txtBank.Location = new System.Drawing.Point(411, 91);
-            this.txtBank.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBank.Margin = new System.Windows.Forms.Padding(4);
             this.txtBank.Multiline = true;
             this.txtBank.Name = "txtBank";
             this.txtBank.Size = new System.Drawing.Size(175, 42);
@@ -152,7 +152,7 @@
             // txtAccount_No
             // 
             this.txtAccount_No.Location = new System.Drawing.Point(411, 59);
-            this.txtAccount_No.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAccount_No.Margin = new System.Windows.Forms.Padding(4);
             this.txtAccount_No.Name = "txtAccount_No";
             this.txtAccount_No.Size = new System.Drawing.Size(175, 22);
             this.txtAccount_No.TabIndex = 8;
@@ -160,7 +160,7 @@
             // txtItemName
             // 
             this.txtItemName.Location = new System.Drawing.Point(83, 112);
-            this.txtItemName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtItemName.Margin = new System.Windows.Forms.Padding(4);
             this.txtItemName.Multiline = true;
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(168, 42);
@@ -169,7 +169,7 @@
             // txtF
             // 
             this.txtF.Location = new System.Drawing.Point(83, 80);
-            this.txtF.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtF.Margin = new System.Windows.Forms.Padding(4);
             this.txtF.Name = "txtF";
             this.txtF.Size = new System.Drawing.Size(168, 22);
             this.txtF.TabIndex = 6;
@@ -217,7 +217,7 @@
             // txtS_code
             // 
             this.txtS_code.Location = new System.Drawing.Point(83, 48);
-            this.txtS_code.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtS_code.Margin = new System.Windows.Forms.Padding(4);
             this.txtS_code.Name = "txtS_code";
             this.txtS_code.Size = new System.Drawing.Size(168, 22);
             this.txtS_code.TabIndex = 1;
@@ -236,7 +236,7 @@
             // 
             this.dataGridViewCode.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCode.Location = new System.Drawing.Point(3, 246);
-            this.dataGridViewCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewCode.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewCode.Name = "dataGridViewCode";
             this.dataGridViewCode.RowHeadersWidth = 51;
             this.dataGridViewCode.Size = new System.Drawing.Size(1079, 187);
@@ -246,7 +246,7 @@
             // btnInsertcode
             // 
             this.btnInsertcode.Location = new System.Drawing.Point(720, 49);
-            this.btnInsertcode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnInsertcode.Margin = new System.Windows.Forms.Padding(4);
             this.btnInsertcode.Name = "btnInsertcode";
             this.btnInsertcode.Size = new System.Drawing.Size(100, 28);
             this.btnInsertcode.TabIndex = 2;
@@ -268,7 +268,7 @@
             // 
             this.cbbCode.FormattingEnabled = true;
             this.cbbCode.Location = new System.Drawing.Point(68, 11);
-            this.cbbCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbCode.Margin = new System.Windows.Forms.Padding(4);
             this.cbbCode.Name = "cbbCode";
             this.cbbCode.Size = new System.Drawing.Size(148, 24);
             this.cbbCode.TabIndex = 4;
@@ -278,7 +278,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(720, 85);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 28);
             this.btnUpdate.TabIndex = 5;
@@ -289,7 +289,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(720, 121);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 28);
             this.btnDelete.TabIndex = 6;
@@ -300,7 +300,7 @@
             // txtSeachcode
             // 
             this.txtSeachcode.Location = new System.Drawing.Point(225, 11);
-            this.txtSeachcode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSeachcode.Margin = new System.Windows.Forms.Padding(4);
             this.txtSeachcode.Name = "txtSeachcode";
             this.txtSeachcode.Size = new System.Drawing.Size(449, 22);
             this.txtSeachcode.TabIndex = 7;
@@ -309,7 +309,7 @@
             // btnSeach
             // 
             this.btnSeach.Location = new System.Drawing.Point(720, 15);
-            this.btnSeach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSeach.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeach.Name = "btnSeach";
             this.btnSeach.Size = new System.Drawing.Size(100, 28);
             this.btnSeach.TabIndex = 8;
@@ -320,7 +320,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(720, 159);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 9;
@@ -331,7 +331,7 @@
             // btnChoose
             // 
             this.btnChoose.Location = new System.Drawing.Point(837, 49);
-            this.btnChoose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChoose.Margin = new System.Windows.Forms.Padding(4);
             this.btnChoose.Name = "btnChoose";
             this.btnChoose.Size = new System.Drawing.Size(100, 28);
             this.btnChoose.TabIndex = 10;
@@ -343,7 +343,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 498);
+            this.ClientSize = new System.Drawing.Size(1084, 514);
             this.Controls.Add(this.btnChoose);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSeach);
@@ -355,7 +355,7 @@
             this.Controls.Add(this.btnInsertcode);
             this.Controls.Add(this.dataGridViewCode);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Code";
             this.Text = "Code";
             this.Load += new System.EventHandler(this.Code_Load);

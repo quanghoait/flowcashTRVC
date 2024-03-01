@@ -59,6 +59,8 @@
             this.btnSeachCashbook = new System.Windows.Forms.Button();
             this.txtSeachCachBook = new System.Windows.Forms.TextBox();
             this.dataViewCashBook = new System.Windows.Forms.DataGridView();
+            this.cbbMonth = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewCashBook)).BeginInit();
@@ -88,7 +90,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(16, 65);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(913, 198);
             this.panel1.TabIndex = 0;
@@ -191,7 +193,7 @@
             this.cbbKindCach.Items.AddRange(new object[] {
             "H15-795-011595"});
             this.cbbKindCach.Location = new System.Drawing.Point(92, 9);
-            this.cbbKindCach.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbbKindCach.Margin = new System.Windows.Forms.Padding(4);
             this.cbbKindCach.Name = "cbbKindCach";
             this.cbbKindCach.Size = new System.Drawing.Size(160, 24);
             this.cbbKindCach.TabIndex = 1;
@@ -213,7 +215,7 @@
             // dateTimePickerCash
             // 
             this.dateTimePickerCash.Location = new System.Drawing.Point(93, 91);
-            this.dateTimePickerCash.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerCash.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerCash.Name = "dateTimePickerCash";
             this.dateTimePickerCash.Size = new System.Drawing.Size(265, 22);
             this.dateTimePickerCash.TabIndex = 13;
@@ -233,7 +235,7 @@
             this.txtPayment.AcceptsReturn = true;
             this.txtPayment.AcceptsTab = true;
             this.txtPayment.Location = new System.Drawing.Point(485, 36);
-            this.txtPayment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPayment.Margin = new System.Windows.Forms.Padding(4);
             this.txtPayment.Name = "txtPayment";
             this.txtPayment.Size = new System.Drawing.Size(147, 22);
             this.txtPayment.TabIndex = 11;
@@ -253,7 +255,7 @@
             // txtIncome
             // 
             this.txtIncome.Location = new System.Drawing.Point(485, 6);
-            this.txtIncome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIncome.Margin = new System.Windows.Forms.Padding(4);
             this.txtIncome.Name = "txtIncome";
             this.txtIncome.Size = new System.Drawing.Size(147, 22);
             this.txtIncome.TabIndex = 9;
@@ -272,7 +274,7 @@
             // textDecscription
             // 
             this.textDecscription.Location = new System.Drawing.Point(93, 121);
-            this.textDecscription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textDecscription.Margin = new System.Windows.Forms.Padding(4);
             this.textDecscription.Multiline = true;
             this.textDecscription.Name = "textDecscription";
             this.textDecscription.Size = new System.Drawing.Size(281, 73);
@@ -308,7 +310,7 @@
             this.panel2.Controls.Add(this.btnPrinter);
             this.panel2.Controls.Add(this.insertCashBook);
             this.panel2.Location = new System.Drawing.Point(939, 65);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(293, 198);
             this.panel2.TabIndex = 1;
@@ -328,7 +330,7 @@
             // 
             this.btnRefesh.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnRefesh.Location = new System.Drawing.Point(11, 97);
-            this.btnRefesh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRefesh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefesh.Name = "btnRefesh";
             this.btnRefesh.Size = new System.Drawing.Size(100, 28);
             this.btnRefesh.TabIndex = 18;
@@ -340,7 +342,7 @@
             // 
             this.btnDeleteCashBook.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnDeleteCashBook.Location = new System.Drawing.Point(11, 65);
-            this.btnDeleteCashBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteCashBook.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteCashBook.Name = "btnDeleteCashBook";
             this.btnDeleteCashBook.Size = new System.Drawing.Size(100, 28);
             this.btnDeleteCashBook.TabIndex = 3;
@@ -352,7 +354,7 @@
             // 
             this.btnEdit.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnEdit.Location = new System.Drawing.Point(11, 36);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(100, 28);
             this.btnEdit.TabIndex = 2;
@@ -375,7 +377,7 @@
             // 
             this.insertCashBook.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.insertCashBook.Location = new System.Drawing.Point(11, 6);
-            this.insertCashBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.insertCashBook.Margin = new System.Windows.Forms.Padding(4);
             this.insertCashBook.Name = "insertCashBook";
             this.insertCashBook.Size = new System.Drawing.Size(100, 28);
             this.insertCashBook.TabIndex = 0;
@@ -387,7 +389,7 @@
             // 
             this.btnSeachCashbook.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnSeachCashbook.Location = new System.Drawing.Point(829, 33);
-            this.btnSeachCashbook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSeachCashbook.Margin = new System.Windows.Forms.Padding(4);
             this.btnSeachCashbook.Name = "btnSeachCashbook";
             this.btnSeachCashbook.Size = new System.Drawing.Size(100, 28);
             this.btnSeachCashbook.TabIndex = 4;
@@ -398,7 +400,7 @@
             // txtSeachCachBook
             // 
             this.txtSeachCachBook.Location = new System.Drawing.Point(261, 33);
-            this.txtSeachCachBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSeachCachBook.Margin = new System.Windows.Forms.Padding(4);
             this.txtSeachCachBook.Name = "txtSeachCachBook";
             this.txtSeachCachBook.Size = new System.Drawing.Size(560, 22);
             this.txtSeachCachBook.TabIndex = 17;
@@ -411,21 +413,45 @@
             this.dataViewCashBook.Name = "dataViewCashBook";
             this.dataViewCashBook.RowHeadersWidth = 51;
             this.dataViewCashBook.RowTemplate.Height = 24;
-            this.dataViewCashBook.Size = new System.Drawing.Size(1220, 270);
+            this.dataViewCashBook.Size = new System.Drawing.Size(1220, 281);
             this.dataViewCashBook.TabIndex = 2;
             this.dataViewCashBook.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewCashBook_CellContentClick);
+            // 
+            // cbbMonth
+            // 
+            this.cbbMonth.FormattingEnabled = true;
+            this.cbbMonth.Location = new System.Drawing.Point(72, 31);
+            this.cbbMonth.Margin = new System.Windows.Forms.Padding(4);
+            this.cbbMonth.Name = "cbbMonth";
+            this.cbbMonth.Size = new System.Drawing.Size(160, 24);
+            this.cbbMonth.TabIndex = 18;
+            this.cbbMonth.Tag = "Cash";
+            this.cbbMonth.DropDown += new System.EventHandler(this.cbbMonth_DropDown);
+            this.cbbMonth.SelectedIndexChanged += new System.EventHandler(this.cbbMonth_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 36);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 16);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Month";
             // 
             // Cashbook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1244, 562);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cbbMonth);
             this.Controls.Add(this.txtSeachCachBook);
             this.Controls.Add(this.btnSeachCashbook);
             this.Controls.Add(this.dataViewCashBook);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Cashbook";
             this.Text = "Cashbook";
             this.Load += new System.EventHandler(this.Cashbook_Load);
@@ -470,5 +496,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label txtNocashbook;
         private System.Windows.Forms.Label No;
+        private System.Windows.Forms.ComboBox cbbMonth;
+        private System.Windows.Forms.Label label8;
     }
 }

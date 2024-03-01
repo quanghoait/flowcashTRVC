@@ -189,7 +189,8 @@ namespace flowcashTRVC
 
             string connString = "Server=" + host + ";Database=" + database
        + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            string request = "SELECT * FROM CashBook";
+            // string request = "SELECT * FROM CashBook";
+            string request = "SELECT * FROM CashBook where  Month(Date_Cash)='" + cbbMonth.Text + "'";
             using (MySqlConnection connection = new MySqlConnection(connString))
             {
                 using (MySqlCommand cmd = new MySqlCommand(request, connection))
@@ -348,23 +349,24 @@ namespace flowcashTRVC
 
         private void btnSeachCashbook_Click(object sender, EventArgs e)
         {
-
-            string connString = "Server=" + host + ";Database=" + database
+                DateTime dateTime = dateTimePickerCash.Value;
+                string connString = "Server=" + host + ";Database=" + database
   + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            string request = "SELECT * FROM CashBook where Ma like '%" + txtSeachCachBook.Text.Trim() + "%' ";
-            using (MySqlConnection connection = new MySqlConnection(connString))
-            {
-                using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                string request = "SELECT * FROM CashBook where  Month(Date_Cash)='"+cbbMonth.Text+"'";
+                using (MySqlConnection connection = new MySqlConnection(connString))
                 {
-                    connection.Open();
-                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                    System.Data.DataTable dataTable = new System.Data.DataTable();
-                    adapter.Fill(dataTable);
-                    dataViewCashBook.DataSource = dataTable;
+                    using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                    {
+                        connection.Open();
+                        MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                        System.Data.DataTable dataTable = new System.Data.DataTable();
+                        adapter.Fill(dataTable);
+                        dataViewCashBook.DataSource = dataTable;
+                    }
                 }
-
-              } }
-                private void btnPrinter_Click(object sender, EventArgs e)
+            
+        }
+        private void btnPrinter_Click(object sender, EventArgs e)
         {
             Excel.Application excelApp = new Excel.Application();
             excelApp.Visible = true;
@@ -425,7 +427,7 @@ namespace flowcashTRVC
             //row23_inCome.Value2 = "Income";
             row23_inCome.ColumnWidth = 8;
             //Payment
-            Range row23_payMent = ws.get_Range("F7","F8");//Cột A dòng 2 và dòng 3
+            Range row23_payMent = ws.get_Range("F7", "F8");//Cột A dòng 2 và dòng 3
             row23_payMent.Merge();
             row23_payMent.Font.Size = fontSizeTenTruong;
             row23_payMent.Font.Name = fontName;
@@ -454,26 +456,64 @@ namespace flowcashTRVC
             row23_suppierName.Font.Size = fontSizeTenTruong;
             row23_suppierName.Font.Name = fontName;
             row23_suppierName.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
-           // row23_suppierName.Value2 = "suppierName";
+            // row23_suppierName.Value2 = "suppierName";
             row23_suppierName.ColumnWidth = 20;
             //Draw clo
             Range row23_CotTieuDe = ws.get_Range("A7", "I7");
             row23_CotTieuDe.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
             //export header
-            for(int i =1; i< dataViewCashBook.ColumnCount; i++)
+            for (int i = 1; i < dataViewCashBook.ColumnCount; i++)
             {
-                ws.Cells[7,i+1] = dataViewCashBook.Columns[i].HeaderText;
+                ws.Cells[7, i + 1] = dataViewCashBook.Columns[i].HeaderText;
             }
             //expoert content
-            for (int i = 0;i< dataViewCashBook.RowCount; i++)
+            //Range row23_Blance1 = ws.get_Range("G10", "G10");//Cột A dòng 2 và dòng 3
+            //row23_Blance1.Merge();
+            //row23_Blance1.Font.Size = fontSizeTenTruong;
+            //row23_Blance1.Font.Name = fontName;
+            //row23_Blance1.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            //row23_Blance1.Value2 = "payMent";
+            for (int i = 0; i < dataViewCashBook.RowCount; i++)
             {
-                for(int j = 0; j < dataViewCashBook.ColumnCount; j++)
+                for (int j = 0; j < dataViewCashBook.ColumnCount; j++)
                 {
-                    ws.Cells[i+9,j+1] = dataViewCashBook.Rows[i].Cells[j].Value;
-                   
+                    ws.Cells[i + 10, j + 1] = dataViewCashBook.Rows[i].Cells[j].Value;
+
                 }
             }
-           
+            Range objects = ws.get_Range("A1", "B6");
+            BorderAround(objects);
+        }
+
+        
+    private void BorderAround(Range range)
+    {
+        Borders borders = range.Borders;
+        borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;
+        borders[XlBordersIndex.xlEdgeTop].LineStyle = XlLineStyle.xlContinuous;
+        borders[XlBordersIndex.xlEdgeBottom].LineStyle = XlLineStyle.xlContinuous;
+        borders[XlBordersIndex.xlEdgeRight].LineStyle = XlLineStyle.xlContinuous;
+        borders.Color = Color.Black;
+        borders[XlBordersIndex.xlInsideVertical].LineStyle = XlLineStyle.xlContinuous;
+        borders[XlBordersIndex.xlInsideHorizontal].LineStyle = XlLineStyle.xlContinuous;
+        borders[XlBordersIndex.xlDiagonalUp].LineStyle = XlLineStyle.xlLineStyleNone;
+        borders[XlBordersIndex.xlDiagonalDown].LineStyle = XlLineStyle.xlLineStyleNone;
+    }
+
+    private void cbbMonth_DropDown(object sender, EventArgs e)
+        {
+            DateTime dateTime = dateTimePickerCash.Value;
+            cbbMonth.Items.Clear();
+            
+            cbbMonth.Items.Add(dateTime.Month);
+           // cbbMonth.Items.Add("VND (VIETCOMBANK)");
+            //cbbMonth.Items.Add("H15-795-011595");
+            //cbbMonth.Items.Add("F15-795-011587");
+            //cbbMonth.Items.Add("F15-795-011919");
+        }
+
+        private void cbbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
