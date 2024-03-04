@@ -370,6 +370,7 @@ namespace flowcashTRVC
 
         private void btnPrinter_Click(object sender, EventArgs e)
         {
+            DateTime dateTime = dateTimePickerCash.Value;
             Excel.Application excelApp = new Excel.Application();
             excelApp.Visible = true;
             Workbook wb;
@@ -391,6 +392,7 @@ namespace flowcashTRVC
             //row1_TieuDe_ThongKeSanPham.Font.Name = fontName;
             //row1_TieuDe_ThongKeSanPham.Cells.HorizontalAlignment = Microsoft.Office.Interop.Excel.XlHAlign.xlHAlignCenter;
             //row1_TieuDe_ThongKeSanPham.Value2 = "Thống kê sản phẩm";
+
             //No
             Range row23_STT = ws.get_Range("A7", "A8");//Cột A dòng 2 và dòng 3
             row23_STT.Merge();
@@ -398,6 +400,7 @@ namespace flowcashTRVC
             row23_STT.Font.Name = fontName;
             row23_STT.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
             row23_STT.Value2 = "No";
+            row23_STT.ColumnWidth = 4;
             //Ma
             Range row23_maCode = ws.get_Range("B7", "B8");//Cột A dòng 2 và dòng 3
             row23_maCode.Merge();
@@ -405,7 +408,7 @@ namespace flowcashTRVC
             row23_maCode.Font.Name = fontName;
             row23_maCode.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
             //row23_maCode.Value2 = "Ma";
-            row23_maCode.ColumnWidth = 20;
+            row23_maCode.ColumnWidth = 10;
             //Date
             Range row23_date = ws.get_Range("C7", "C8");//Cột A dòng 2 và dòng 3
             row23_date.Merge();
@@ -533,12 +536,34 @@ namespace flowcashTRVC
             row_manager3.Font.Name = fontName;
             row_manager3.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
             row_manager3.Value2 = "Prepared by";
+            ws.Cells[1, 1] = "TM";
+            ws.Cells[2, 1] = "VD";
+            ws.Cells[3, 1] = "MD";
+            ws.Cells[4, 1] = "MU";
+            ws.Cells[5, 1] = "MD";
+            ws.Cells[6, 1] = "MY";
+           // ws.Cells[7, 1] = "MF";
+            ws.Cells[1,2].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
+            ws.Cells[2, 2].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Aqua);
+            ws.Cells[3, 2].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Beige);
+            ws.Cells[4, 2].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.BlanchedAlmond);
+            ws.Cells[5, 2].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.DarkBlue);
+            ws.Cells[6, 2].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.DarkViolet);
+            Microsoft.Office.Interop.Excel.Range oRange = (Microsoft.Office.Interop.Excel.Range)ws.Cells[1, 3];
+            float Left = (float)((double)oRange.Left);
+            float Top = (float)((double)oRange.Top);
+            const float ImageSize = 34;
+            ws.Shapes.AddPicture("D:\\hoa\\C#\\flowcashTRVC\\logoTrad.png", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, ImageSize, ImageSize);
+            //ws.Cells[7, 2].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
 
+            //ws.Cells[2, 4] = ws.Shapes.AddPicture("D:\\hoa\\C#\\flowcashTRVC\\logoTrad.png", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 10, 10, 64, 64);
+            ws.Cells[4,3] = "T.RAD (Vietnam) Co.,Ltd";
+            ws.Cells[5, 3] = "CASH FLOW 2024";
+            ws.Cells[9, 4] = "Blance";
+            ws.Cells[6, 3]=dateTime.ToShortDateString().ToString();
         }
 
-
-        
-    private void BorderAround(Range range)
+        private void BorderAround(Range range)
     {
         Borders borders = range.Borders;
         borders[XlBordersIndex.xlEdgeLeft].LineStyle = XlLineStyle.xlContinuous;

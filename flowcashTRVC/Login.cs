@@ -15,7 +15,7 @@ namespace flowcashTRVC
 {
     public partial class Login : Form
     {
-        string host = "localhost";
+        string host = "127.0.0.1";
         int port = 3306;
         string database = "ManagerFlowMonneyTrad";
         string username = "root";
