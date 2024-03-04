@@ -464,7 +464,7 @@ namespace flowcashTRVC
             row23_suppierName.ColumnWidth = 22;
             //Draw clo
             Range row23_CotTieuDe = ws.get_Range("A7", "I7");
-            row23_CotTieuDe.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
+            row23_CotTieuDe.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Aqua);
             //export header
             for (int i = 1; i < dataViewCashBook.ColumnCount; i++)
             {
@@ -487,33 +487,51 @@ namespace flowcashTRVC
                 }
                 dem++;
             }
-            Range row23_Blance2 = ws.get_Range("A7", "I8");
 
+            Range row23_Blance2 = ws.get_Range("A7", "I8");
             BorderAround(row23_Blance2);
-            //MessageBox.Show("" + dem);
             int sum = 10 + dem;
-           // MessageBox.Show("" + sum);
             Range row23_Blance3 = ws.get_Range("A10", "I"+sum);
+            int sum1 = sum - 1;
+            int sum2 = sum + 4;
             BorderAround(row23_Blance3);
-             ws.get_Range("A10").Value2 = 1;
+            ws.get_Range("A10").Value2 = 1;
             ws.get_Range("A11").Formula = "=A10+1";
             Range row23_Blance33 = ws.get_Range("A11", "A15");
-            row23_Blance33.AutoFill(ws.get_Range["A11", "A20"],
-         Excel.XlAutoFillType.xlFillDefault);
-
-
-            //  ws.Cells[m, 1].Value = g;
-
-
-
-
-            //ws.get_Range("A10").Formula = "=SEQUENCE("+dem+")";
-
-
-
-
+            ws.get_Range("E9").Formula = "=Sum(E10:E"+sum+")";
+            ws.get_Range("F9").Formula = "=Sum(F10:F" + sum + ")";
+            ws.get_Range("G9").Formula = "=G" + sum1 ;
+            //Manager
+            Range row_manager = ws.get_Range("A"+sum2, "B"+sum2);//Cột A dòng 2 và dòng 3
+            row_manager.Merge();
+            row_manager.Font.Size = fontSizeTenTruong;
+            row_manager.Font.Name = fontName;
+            row_manager.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            row_manager.Value2 = "Manager";
+            //Manager
+            Range row_manager1 = ws.get_Range("C" + sum2, "D" + sum2);//Cột A dòng 2 và dòng 3
+            row_manager1.Merge();
+            row_manager1.Font.Size = fontSizeTenTruong;
+            row_manager1.Font.Name = fontName;
+            row_manager1.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            row_manager1.Value2 = "General Director";
+            //Manager
+            Range row_manager2 = ws.get_Range("E" + sum2, "F" + sum2);//Cột A dòng 2 và dòng 3
+            row_manager2.Merge();
+            row_manager2.Font.Size = fontSizeTenTruong;
+            row_manager2.Font.Name = fontName;
+            row_manager2.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            row_manager2.Value2 = "Checked by";
+            //Manager
+            Range row_manager3 = ws.get_Range("H" + sum2, "I" + sum2);//Cột A dòng 2 và dòng 3
+            row_manager3.Merge();
+            row_manager3.Font.Size = fontSizeTenTruong;
+            row_manager3.Font.Name = fontName;
+            row_manager3.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+            row_manager3.Value2 = "Prepared by";
 
         }
+
 
         
     private void BorderAround(Range range)
@@ -543,6 +561,11 @@ namespace flowcashTRVC
         }
 
         private void cbbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIncome_TextChanged(object sender, EventArgs e)
         {
 
         }

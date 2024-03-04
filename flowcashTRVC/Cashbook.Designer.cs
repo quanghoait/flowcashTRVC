@@ -239,7 +239,6 @@
             this.txtPayment.Name = "txtPayment";
             this.txtPayment.Size = new System.Drawing.Size(147, 22);
             this.txtPayment.TabIndex = 11;
-            this.txtPayment.Text = "0";
             this.txtPayment.TextChanged += new System.EventHandler(this.txtPayment_TextChanged);
             // 
             // label5
@@ -259,7 +258,7 @@
             this.txtIncome.Name = "txtIncome";
             this.txtIncome.Size = new System.Drawing.Size(147, 22);
             this.txtIncome.TabIndex = 9;
-            this.txtIncome.Text = "0";
+            this.txtIncome.TextChanged += new System.EventHandler(this.txtIncome_TextChanged);
             // 
             // label4
             // 
