@@ -14,6 +14,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Security.Policy;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
+using Mysqlx.Resultset;
 
 namespace flowcashTRVC
 {
@@ -366,6 +367,7 @@ namespace flowcashTRVC
                 }
             
         }
+
         private void btnPrinter_Click(object sender, EventArgs e)
         {
             Excel.Application excelApp = new Excel.Application();
@@ -374,7 +376,9 @@ namespace flowcashTRVC
             Worksheet ws;
             object misValue = System.Reflection.Missing.Value;
             wb = excelApp.Workbooks.Add(misValue);
+
             ws = (Worksheet)wb.Worksheets[1];
+
             ws.Name = "export_month";
             int row = 1;
             string fontName = "Times New Roman";
@@ -457,7 +461,7 @@ namespace flowcashTRVC
             row23_suppierName.Font.Name = fontName;
             row23_suppierName.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
             // row23_suppierName.Value2 = "suppierName";
-            row23_suppierName.ColumnWidth = 20;
+            row23_suppierName.ColumnWidth = 22;
             //Draw clo
             Range row23_CotTieuDe = ws.get_Range("A7", "I7");
             row23_CotTieuDe.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
@@ -473,16 +477,42 @@ namespace flowcashTRVC
             //row23_Blance1.Font.Name = fontName;
             //row23_Blance1.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
             //row23_Blance1.Value2 = "payMent";
+            int dem = -1;
             for (int i = 0; i < dataViewCashBook.RowCount; i++)
             {
-                for (int j = 0; j < dataViewCashBook.ColumnCount; j++)
+                for (int j = 1; j < dataViewCashBook.ColumnCount; j++)
                 {
                     ws.Cells[i + 10, j + 1] = dataViewCashBook.Rows[i].Cells[j].Value;
-
+                   
                 }
+                dem++;
             }
-            Range objects = ws.get_Range("A1", "B6");
-            BorderAround(objects);
+            Range row23_Blance2 = ws.get_Range("A7", "I8");
+
+            BorderAround(row23_Blance2);
+            //MessageBox.Show("" + dem);
+            int sum = 10 + dem;
+           // MessageBox.Show("" + sum);
+            Range row23_Blance3 = ws.get_Range("A10", "I"+sum);
+            BorderAround(row23_Blance3);
+             ws.get_Range("A10").Value2 = 1;
+            ws.get_Range("A11").Formula = "=A10+1";
+            Range row23_Blance33 = ws.get_Range("A11", "A15");
+            row23_Blance33.AutoFill(ws.get_Range["A11", "A20"],
+         Excel.XlAutoFillType.xlFillDefault);
+
+
+            //  ws.Cells[m, 1].Value = g;
+
+
+
+
+            //ws.get_Range("A10").Formula = "=SEQUENCE("+dem+")";
+
+
+
+
+
         }
 
         
