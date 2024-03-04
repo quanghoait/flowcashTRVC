@@ -449,7 +449,7 @@ namespace flowcashTRVC
             //SupplierCode
             Range row23_SupplierCode = ws.get_Range("H7", "H8");//Cột A dòng 2 và dòng 3
             row23_SupplierCode.Merge();
-            row23_SupplierCode.Font.Size = fontSizeTenTruong;
+            
             row23_SupplierCode.Font.Name = fontName;
             row23_SupplierCode.Cells.HorizontalAlignment = XlHAlign.xlHAlignCenter;
             //row23_SupplierCode.Value2 = "SupplierCode";
@@ -464,7 +464,11 @@ namespace flowcashTRVC
             row23_suppierName.ColumnWidth = 22;
             //Draw clo
             Range row23_CotTieuDe = ws.get_Range("A7", "I7");
-            row23_CotTieuDe.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Aqua);
+            row23_CotTieuDe.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.DarkGray);
+            Range row23_sum = ws.get_Range("A9", "I9");
+            row23_sum.Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
+            row23_sum.Font.Size = 13;
+
             //export header
             for (int i = 1; i < dataViewCashBook.ColumnCount; i++)
             {
@@ -491,7 +495,7 @@ namespace flowcashTRVC
             Range row23_Blance2 = ws.get_Range("A7", "I8");
             BorderAround(row23_Blance2);
             int sum = 10 + dem;
-            Range row23_Blance3 = ws.get_Range("A10", "I"+sum);
+            Range row23_Blance3 = ws.get_Range("A9", "I"+sum);
             int sum1 = sum - 1;
             int sum2 = sum + 4;
             BorderAround(row23_Blance3);
