@@ -142,20 +142,27 @@ namespace flowcashTRVC
 
         private void insertCashBook_Click(object sender, EventArgs e)
         {
-
-            DateTime dateTime = dateTimePickerCash.Value;
-            string connString = "Server=" + host + ";Database=" + database
-      + ";port=" + port + ";User Id=" + username + ";password=" + password;
-            //string request = "INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ('"+txtS_code.Text+ "','"+txtAccount_No.Text+ "','"+txtItemName.Text+ "','"+txtKind.Text+ "','"+txtBank.Text+ "','"+txtType.Text + "')"; 
-            string request = "INSERT INTO CashBook( Ma,Date_Cash,Decscription,Income,Payment,Balance,SupplierCode,SupplierName) VALUES ('" + displayKindCash.Text + "','" + dateTime.ToShortDateString() + "','" + textDecscription.Text + "','" + txtIncome.Text + "','" + txtPayment.Text + "','" + displayBalance.Text + "','" + lbMaCode.Text + "','" + lbNameCode.Text + "');";
-            using (MySqlConnection connection = new MySqlConnection(connString))
+            if (txtIncome.Text == "" || txtPayment.Text == "")
             {
-                using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                MessageBox.Show("Không được để trống 2 ô Income và Payment");
+            }
+            else
+            {
+                DateTime dateTime = dateTimePickerCash.Value;
+                string connString = "Server=" + host + ";Database=" + database
+          + ";port=" + port + ";User Id=" + username + ";password=" + password;
+                //string request = "INSERT INTO CodeTable( S_code,F,ItemName,the_kind,Account_No,Bank,Type) VALUES ('"+txtS_code.Text+ "','"+txtAccount_No.Text+ "','"+txtItemName.Text+ "','"+txtKind.Text+ "','"+txtBank.Text+ "','"+txtType.Text + "')"; 
+                string request = "INSERT INTO CashBook( Ma,Date_Cash,Decscription,Income,Payment,Balance,SupplierCode,SupplierName) VALUES ('" + displayKindCash.Text + "','" + dateTime.ToShortDateString() + "','" + textDecscription.Text + "','" + txtIncome.Text + "','" + txtPayment.Text + "','" + displayBalance.Text + "','" + lbMaCode.Text + "','" + lbNameCode.Text + "');";
+                using (MySqlConnection connection = new MySqlConnection(connString))
                 {
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
-                    connection.Close();
-                    Read_Data();
+                    using (MySqlCommand cmd = new MySqlCommand(request, connection))
+                    {
+                        connection.Open();
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+                        Read_Data();
+
+                    }
 
                 }
 
@@ -553,7 +560,7 @@ namespace flowcashTRVC
             float Left = (float)((double)oRange.Left);
             float Top = (float)((double)oRange.Top);
             const float ImageSize = 34;
-            ws.Shapes.AddPicture("D:\\hoa\\C#\\flowcashTRVC\\logoTrad.png", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, ImageSize, ImageSize);
+           // ws.Shapes.AddPicture("D:\\hoa\\C#\\flowcashTRVC\\logoTrad.png", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, ImageSize, ImageSize);
             //ws.Cells[7, 2].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
 
             //ws.Cells[2, 4] = ws.Shapes.AddPicture("D:\\hoa\\C#\\flowcashTRVC\\logoTrad.png", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 10, 10, 64, 64);

@@ -304,6 +304,7 @@ namespace flowcashTRVC
         //public getData myData1;
         private void btnChoose_Click(object sender, EventArgs e)
         {
+
               myData(txtS_code.Text);
               myData1(txtF.Text);
 
