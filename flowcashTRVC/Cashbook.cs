@@ -560,7 +560,7 @@ namespace flowcashTRVC
             float Left = (float)((double)oRange.Left);
             float Top = (float)((double)oRange.Top);
             const float ImageSize = 34;
-           // ws.Shapes.AddPicture("D:\\hoa\\C#\\flowcashTRVC\\logoTrad.png", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, ImageSize, ImageSize);
+           ws.Shapes.AddPicture("D:\\hoa\\C#\\flowcashTRVC\\logoTrad.png", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, Left, Top, ImageSize, ImageSize);
             //ws.Cells[7, 2].Interior.Color = ColorTranslator.ToOle(System.Drawing.Color.Yellow);
 
             //ws.Cells[2, 4] = ws.Shapes.AddPicture("D:\\hoa\\C#\\flowcashTRVC\\logoTrad.png", Microsoft.Office.Core.MsoTriState.msoFalse, Microsoft.Office.Core.MsoTriState.msoCTrue, 10, 10, 64, 64);
